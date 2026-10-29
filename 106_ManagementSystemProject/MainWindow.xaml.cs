@@ -24,5 +24,22 @@ namespace _106_ManagementSystemProject
         {
             InitializeComponent();
         }
+
+        private void Home_Click(object sender, RoutedEventArgs e)
+        {
+            MainArea.Navigate(new Home());
+        }
+        private void Login_Click(object sender, RoutedEventArgs e)
+        {
+            MainArea.Navigate(new Login());
+        }
+        private void AboutUs_Click(object sender, RoutedEventArgs e)
+        {
+            MainArea.Navigate(new AboutUs());
+        }
+        private void ContactUs_Click(object sender, RoutedEventArgs e)
+        {
+            MainArea.Navigate(new ContactUs());
+        }
     }
 }

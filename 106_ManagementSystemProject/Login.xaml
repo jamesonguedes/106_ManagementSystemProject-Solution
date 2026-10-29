@@ -6,8 +6,7 @@
       xmlns:local="clr-namespace:_106_ManagementSystemProject"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Login"
-      Background="BLUE">
+      Title="Login">
 
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
         <TextBlock FontSize="40" FontWeight="Bold" Foreground="White">LOGIN PAGE</TextBlock>
