@@ -5,23 +5,47 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_106_ManagementSystemProject"
         mc:Ignorable="d"
-        Title="Login Page" Height="600" Width="1000"
-        FontFamily="Calibri" FontSize="20">
-    <Grid Margin="0,0,20,0">
+        Title="HR Management System" Height="600" Width="1000"
+        FontFamily="Trebuchet MS" FontSize="20">
+
+
+    <Grid Margin="0,0,0,0">
         
+        <!-- Background Image -->
+        <Grid.Background>
+            <ImageBrush ImageSource="/pexels-thongtran95-17643093.jpg"/>
+        </Grid.Background>
+
         <!-- Grid definition -->
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="90"/>
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        
-        <!-- Application name -->
-        <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,0,0">HR Management System</TextBlock>
-        <Frame Grid.Column="1" Grid.Row="1" Name="MainArea" Source="Login.xaml">
+
+        <!-- Navigation Bar -->
+        <Grid Background="#000807">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Margin="5" BorderThickness="0"  Background="#000807"
+                        FontSize="16" Foreground="#FBF9FF"
+                        Content="HOME"
+                        Click="Home_Click"/>
+                <Button Margin="5" BorderThickness="0"  Background="#000807"
+                        FontSize="16" Foreground="#FBF9FF"
+                        Content="ABOUT US"
+                        Click="AboutUs_Click"/>
+                <Button Margin="5" BorderThickness="0"  Background="#000807"
+                        FontSize="16" Foreground="#FBF9FF"
+                        Content="CONTACT US"
+                        Click="ContactUs_Click"/>
+                <Button Margin="5" BorderThickness="0"  Background="#000807"
+                        FontSize="16" Foreground="#FBF9FF"
+                        Content="LOGIN"
+                        Click="Login_Click"/>
+            </StackPanel>
+        </Grid>
+
+        <Frame Grid.Row="1" Name="MainArea" Source="Home.xaml"
+               NavigationUIVisibility="Hidden">
             
         </Frame>
 
