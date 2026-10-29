@@ -13,7 +13,8 @@
         
         <!-- Background Image -->
         <Grid.Background>
-            <ImageBrush ImageSource="/pexels-thongtran95-17643093.jpg"/>
+            <ImageBrush ImageSource="/pexels-thongtran95-17643093.jpg"
+                        Opacity="0.9"/>
         </Grid.Background>
 
         <!-- Grid definition -->
