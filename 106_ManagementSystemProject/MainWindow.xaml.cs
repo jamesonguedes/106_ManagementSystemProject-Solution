@@ -25,6 +25,7 @@ namespace _106_ManagementSystemProject
             InitializeComponent();
         }
 
+        // Initial Page methods
         private void Home_Click(object sender, RoutedEventArgs e)
         {
             MainArea.Navigate(new Home());
@@ -41,5 +42,6 @@ namespace _106_ManagementSystemProject
         {
             MainArea.Navigate(new ContactUs());
         }
+
     }
 }
