@@ -10,6 +10,11 @@
 
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
         <TextBlock FontSize="40" FontWeight="Bold" Foreground="White">LOGIN PAGE</TextBlock>
+
+        <!--KATHRYN: This button is temporary, delete later -->
+        <Button Content="Temporary Button - goes to Admin Dashboard"
+                Click="AdminDashboard_Click"/>
+
     </StackPanel>
     
 </Page>
