@@ -54,13 +54,8 @@
         Margin="0,5,0,20"
         Click="Login_Click"/>
 
-        <Button 
-        Content="Back to Home"
-        Foreground="#FBF9FF"
-        Background="#9395D3"
-        Width="250"
-        Height="40"
-        Click="Backtohome_Click"/>
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <TextBlock FontSize="40" FontWeight="Bold" Foreground="White">LOGIN PAGE</TextBlock>
     </StackPanel>
     
 </Page>

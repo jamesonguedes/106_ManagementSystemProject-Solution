@@ -42,6 +42,7 @@
         <!-- Navigation Bar -->
         <Grid Background="#000807" Grid.Row="0" Grid.ColumnSpan="7">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <!--
                 <Button Margin="5" BorderThickness="0"  Background="#000807"
                         FontSize="16" Foreground="#FBF9FF"
                         Content="HOME"
@@ -58,6 +59,7 @@
                         FontSize="16" Foreground="#FBF9FF"
                         Content="LOGIN"
                         Click="Login_Click"/>
+                -->
             </StackPanel>
         </Grid>
         
@@ -101,44 +103,123 @@
         </Border>
 
         <Grid Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" Background="#fbf9ff">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+            <StackPanel Margin="40">
 
-            <StackPanel Grid.Row="0" Margin="10">
-                <TextBlock Text="Employee name:" />
-                <TextBox x:Name="txtNameBox"/>
+                <DataGrid x:Name="dgManageEmployee"
+                  Height="200"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  Margin="0,0,0,20">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Employee ID"
+                                    Binding="{Binding Id}"
+                                    Width="*"/>
+                        <DataGridTextColumn Header="First Name"
+                                    Binding="{Binding FirstName}"
+                                    Width="*"/>
+                        <DataGridTextColumn Header="Last Name"
+                                    Binding="{Binding LastName}"
+                                    Width="*"/>
+                        <DataGridTextColumn Header="Email"
+                                    Binding="{Binding Email}"
+                                    Width="*"/>
+                        <DataGridTextColumn Header="Phone"
+                                    Binding="{Binding Phone}"
+                                    Width="*"/>
+                        <DataGridTextColumn Header="Department"
+                                    Binding="{Binding Department}"
+                                    Width="*"/>
+                    </DataGrid.Columns>
 
-                <TextBlock Text="Employee email:" />
-                <TextBox x:Name="txtEmailBox"/>
+                </DataGrid>
 
-                <TextBlock Text="Employee role:" />
-                <TextBox x:Name="txtRoleBox"/>
+                <Grid HorizontalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                
+                    <StackPanel Grid.Column="0">
+                        <TextBlock Text="First Name"/>
+                        <TextBox x:Name="txtFirstName"
+                           Height="30"
+                           Margin="0,5,0,10"/>
+                    </StackPanel>
 
-                <Button Content="Add Employee"
-                        Width="100"
-                        Click="Save_Click"/>
+                    <StackPanel Grid.Column="1">
+                        <TextBlock Text="Last Name"/>
+                        <TextBox x:Name="txtLastName"
+                           Height="30"
+                           Margin="0,5,0,10"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="2">
+                        <TextBlock Text="Email"/>
+                        <TextBox x:Name="txtEmail"
+                           Height="30"
+                           Margin="0,5,0,10"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="3">
+                        <TextBlock Text="Phone"/>
+                        <TextBox x:Name="txtPhone"
+                           Height="30"
+                           Margin="0,5,0,10"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="4">
+                        <TextBlock Text="Job Title"/>
+                        <TextBox x:Name="txtJobTitle"
+                           Height="30"
+                           Margin="0,5,0,10"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="5">
+                        <TextBlock Text="Department"/>
+                        <TextBox x:Name="txtDepartment"
+                           Height="30"
+                           Margin="0,5,0,20"/>
+                    </StackPanel>
+
+                </Grid>
+                <!-- Buttons: Employee Info -->
+                <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+                    <Button Content="Save"
+                            Width="120"
+                            Height="40"
+                            Margin="5"
+                            Click="Save_Click"/>
+                    <Button Content="About"
+                            Width="120"
+                            Height="40"
+                            Margin="5"
+                            Click="About_Click"/>
+                    <Button Content="Delete"
+                            Width="120"
+                            Height="40"
+                            Margin="5"
+                            Click="Delete_Click"/>
+                    <Button Content="Update"
+                            Width="120"
+                            Height="40"
+                            HorizontalAlignment="Center"
+                            Margin="5"
+                            Click="Update_Click"/>
+                </StackPanel>
+
+                <!-- Display saved employees on list -->
+                <TextBlock Text="Saved employees:" Margin="0,20,0,8" />
+                <ListBox x:Name="EmployeesListBox"
+                         DisplayMemberPath="FirstName + LastName"
+                         Height="150" />
+
             </StackPanel>
 
-            <DataGrid Grid.Row="1"
-                      x:Name="EmployeesDataGrid"
-                      AutoGenerateColumns="False"
-                      IsReadOnly="True"
-                      CanUserAddRows="False"
-                      HeadersVisibility="Column"
-                      ScrollViewer.VerticalScrollBarVisibility="Auto" HorizontalAlignment="Left" Width="497">
-
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Name"
-                                        Binding="{Binding Name}"
-                                        Width="*" />
-                    <DataGridTextColumn Header="Email"
-                                        Binding="{Binding Email}"
-                                        Width="*" />
-                </DataGrid.Columns>
-                
-            </DataGrid>
         </Grid>
 
 
