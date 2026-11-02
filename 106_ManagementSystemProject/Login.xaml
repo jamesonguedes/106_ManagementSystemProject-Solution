@@ -17,6 +17,7 @@
 
         <TextBlock 
            Text="Username"
+           FontSize="20"
            FontWeight="Bold"/>
 
         <TextBox 
@@ -26,6 +27,7 @@
 
         <TextBlock 
            Text="Password"
+           FontSize="20"
            FontWeight="Bold"/>
 
         <PasswordBox 
