@@ -77,7 +77,7 @@ namespace _106_ManagementSystemProject
                 new SqliteConnection("Data Source=employees.db"))
             {
                 connection.Open();
-                string sql = "SELECT Id, FirstName, LastName FROM Employees ORDER BY Id;";
+                string sql = "SELECT * FROM Employees";
 
                 using (SqliteCommand command =
                     new SqliteCommand(sql, connection))
@@ -87,15 +87,15 @@ namespace _106_ManagementSystemProject
                         while (reader.Read())
                         {
                             Employee employee = new Employee();
-                            {
-                                employee.Id = reader.GetInt32(0),
-                                employee.FirstName = reader.GetString(1),
-                                employee.LastName = reader.GetString(2),
-                                employee.Email = reader.GetString(3),
-                                employee.Phone = reader.GetString(4),
-                                employee.JobTitle = reader.GetString(5),
-                                employee.Department = reader.GetString(6)
-                            };
+
+                            employee.Id = reader.GetInt32(0);
+                            employee.FirstName = reader.GetString(1);
+                            employee.LastName = reader.GetString(2);
+                            employee.Email = reader.GetString(3);
+                            employee.Phone = reader.GetString(4);
+                            employee.JobTitle = reader.GetString(5);
+                            employee.Department = reader.GetString(6);
+
                             employees.Add(employee);
                         }
                     }
@@ -103,8 +103,25 @@ namespace _106_ManagementSystemProject
             }
             return employees;
         }
-
         // ------------------------------------------------------------------------------
 
+        // METHOD 04: called in the Employee Info
+        public static void DeleteEmployee(int id)
+        {
+            using (SqliteConnection connection =
+                new SqliteConnection("Data Source=employees.db"))
+            {
+                connection.Open();
+                string sql = "DELETE FROM Employees WHERE Id = @Id;";
+
+                using (SqliteCommand command =
+                    new SqliteCommand(sql, connection))
+                {
+                    command.Parameters.AddWithValue("@Id", id);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+        // ------------------------------------------------------------------------------
     }
 }

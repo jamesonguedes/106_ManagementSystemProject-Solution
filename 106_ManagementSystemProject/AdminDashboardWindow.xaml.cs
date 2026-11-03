@@ -33,6 +33,8 @@ namespace _106_ManagementSystemProject
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             string firstName = txtFirstName.Text.Trim();    // Trim() deletes an extra space before or after
+
+            // Let's check if all fields are full:
             if (string.IsNullOrWhiteSpace(firstName))
             {
                 MessageBox.Show("Please enter the employee's First Name.");
@@ -74,6 +76,7 @@ namespace _106_ManagementSystemProject
                 return;
             }
 
+            // Create a temporary employee instance:
             Employee employee = new Employee();
             employee.FirstName = firstName;
             employee.LastName = lastName;
@@ -82,10 +85,14 @@ namespace _106_ManagementSystemProject
             employee.JobTitle = jobTitle;
             employee.Department = department;
 
-            Database.AddEmployee(employee); // AddEmployee method is in the database class
+            // Add the temporary employee instance to the database:
+            Database.AddEmployee(employee);
 
-            MessageBox.Show("Emplouee ID: " + employee.Id + 
-                "\nName: " + employee.FirstName + " " + employee.LastName +
+            // Displays the list of emlployees in the DataGrid:
+            LoadEmployees();
+
+            // Message to be displayed when new employee is added:
+            MessageBox.Show("Name: " + employee.FirstName + " " + employee.LastName +
                 "\nSaved successfully!");
 
             // Lets make sure all the fields are clean :)
@@ -96,24 +103,37 @@ namespace _106_ManagementSystemProject
             txtJobTitle.Clear();
             txtDepartment.Clear();
         }
-        private void About_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Under Maintenance");                   // UNDER MAINTENANCE!!!
-        }
-        private void Delete_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Under Maintenance");                   // UNDER MAINTENANCE!!!
-        }
+
         private void Update_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Under Maintenance");                   // UNDER MAINTENANCE!!!
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            
+            Employee selectedEmployee = dgManageEmployee.SelectedItem as Employee;
+            if (selectedEmployee == null)
+            {
+                MessageBox.Show("Please select an employee to delete.");
+                return;
+            }
+            MessageBoxResult answer = MessageBox.Show($"Are you sure you want to delete {selectedEmployee.FirstName} {selectedEmployee.LastName}?", "Confirm Delete", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+            if (answer != MessageBoxResult.Yes)
+            {
+                return; // User chose not to delete
+            }
+
+            Database.DeleteEmployee(selectedEmployee.Id);
+            LoadEmployees();
         }
         // ------------------------------------------------------------------------------
 
         //  Load list after saving the employee info ------------------------------------
         private void LoadEmployees()
         {
-            EmployeesListBox.ItemsSource = Database.GetEmployees(); // GetEmployees method is in the database class
+            dgManageEmployee.ItemsSource = Database.GetEmployees(); // GetEmployees method is in the database class
         }
         // ------------------------------------------------------------------------------
 

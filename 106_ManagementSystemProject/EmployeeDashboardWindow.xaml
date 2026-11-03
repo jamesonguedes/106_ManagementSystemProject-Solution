@@ -15,27 +15,6 @@
                         Opacity="0.9"/>
         </Grid.Background>
 
-        <!-- Navigation Bar -->
-        <Grid Background="#000807" Grid.Row="0" Grid.ColumnSpan="7">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Margin="5" BorderThickness="0"  Background="#000807"
-                FontSize="16" Foreground="#FBF9FF"
-                Content="HOME"
-                Click="Home_Click"/>
-                <Button Margin="5" BorderThickness="0"  Background="#000807"
-                FontSize="16" Foreground="#FBF9FF"
-                Content="ABOUT US"
-                Click="AboutUs_Click"/>
-                <Button Margin="5" BorderThickness="0"  Background="#000807"
-                FontSize="16" Foreground="#FBF9FF"
-                Content="CONTACT US"
-                Click="ContactUs_Click"/>
-                <Button Margin="5" BorderThickness="0"  Background="#000807"
-                FontSize="16" Foreground="#FBF9FF"
-                Content="LOGIN"
-                Click="Login_Click"/>
-            </StackPanel>
-        </Grid> 
 
         <!-- Grid definition -->
         <Grid.RowDefinitions>

@@ -113,7 +113,7 @@
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Employee ID"
                                     Binding="{Binding Id}"
-                                    Width="*"/>
+                                    Width="Auto"/>
                         <DataGridTextColumn Header="First Name"
                                     Binding="{Binding FirstName}"
                                     Width="*"/>
@@ -125,6 +125,9 @@
                                     Width="*"/>
                         <DataGridTextColumn Header="Phone"
                                     Binding="{Binding Phone}"
+                                    Width="*"/>
+                        <DataGridTextColumn Header="Job Title"
+                                    Binding="{Binding JobTitle}"
                                     Width="*"/>
                         <DataGridTextColumn Header="Department"
                                     Binding="{Binding Department}"
@@ -194,22 +197,17 @@
                             Height="40"
                             Margin="5"
                             Click="Save_Click"/>
-                    <Button Content="About"
-                            Width="120"
-                            Height="40"
-                            Margin="5"
-                            Click="About_Click"/>
-                    <Button Content="Delete"
-                            Width="120"
-                            Height="40"
-                            Margin="5"
-                            Click="Delete_Click"/>
                     <Button Content="Update"
                             Width="120"
                             Height="40"
                             HorizontalAlignment="Center"
                             Margin="5"
                             Click="Update_Click"/>
+                    <Button Content="Delete"
+                            Width="120"
+                            Height="40"
+                            Margin="5"
+                            Click="Delete_Click"/>
                 </StackPanel>
 
                 <!-- Display saved employees on list -->
