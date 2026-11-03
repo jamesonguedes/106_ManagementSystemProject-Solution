@@ -7,52 +7,50 @@
       mc:Ignorable="d" 
       Title="Login" Height="600" Width="1000">
 
-    <StackPanel VerticalAlignment="Center">
-        <TextBlock 
+    <StackPanel >
+        <ListBox Height="479" Width="942">
+            <TextBlock 
            Text="Login Page"
            FontWeight="Bold"
            FontSize="30"
-           Foreground="White"
-           HorizontalAlignment="Center"
-           Margin="0,20,0,30"/>
+           />
 
-        <TextBlock 
+
+            <TextBlock 
            Text="Username"
            FontSize="20"
-           FontWeight="Bold"
-           Foreground="White"/>
+           FontWeight="Bold"/>
 
-        <TextBox 
+            <TextBox 
          x:Name="txtUsername"
          Height="35"
-         Margin="0,5,0,20"/>
+         Margin="0,5,0,20" Width="837"/>
 
-        <TextBlock 
+            <TextBlock 
            Text="Password"
            FontSize="20"
-           FontWeight="Bold"
-           Foreground="White"/>
+           FontWeight="Bold"/>
 
-        <PasswordBox 
+            <PasswordBox 
              x:Name="txtPassword"
              Height="35"
-             Margin="0,5,0,20"/>
+             Margin="0,5,0,20" Width="832"/>
 
-        <TextBlock
+            <TextBlock
             Text="Forgot your password?"
             FontSize="16"
             Foreground="White"
             HorizontalAlignment="Center"
             Margin="0,10,0,20"/>
 
-        <Button 
-        Content="Login"
+            <Button 
+            Content="Login"
         Foreground="#FBF9FF"
         Background="#9395D3"
         Width="250"
         Height="40"
         Margin="0,5,0,20"
         Click="AdminDashboard_Click"/>
-
+        </ListBox>
     </StackPanel>
 </Page>
