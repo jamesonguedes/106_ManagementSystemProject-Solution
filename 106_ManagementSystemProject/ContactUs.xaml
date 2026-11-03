@@ -9,6 +9,12 @@
       Title="ContactUs">
 
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-        <TextBlock FontSize="40" FontWeight="Bold" Foreground="White">CONTACT US PAGE</TextBlock>
+        <ListBox Height="479" Width="942">
+            <TextBlock 
+           Text="Contact Us"
+           FontWeight="Bold"
+           FontSize="30"
+           />
+        </ListBox>
     </StackPanel>
 </Page>

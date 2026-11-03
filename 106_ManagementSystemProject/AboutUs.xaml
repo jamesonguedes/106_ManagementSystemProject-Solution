@@ -8,10 +8,14 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AboutUs">
 
-    <Grid>
-        
-    </Grid>
-    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-        <TextBlock FontSize="40" FontWeight="Bold" Foreground="White">ABOUT US PAGE</TextBlock>
+    
+    <StackPanel>
+        <ListBox Height="479" Width="942">
+            <TextBlock 
+           Text="About Us"
+           FontWeight="Bold"
+           FontSize="30"
+           />
+        </ListBox>
     </StackPanel>
 </Page>
