@@ -30,13 +30,13 @@
         </Grid.RowDefinitions>
    
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="25"/>
+            <ColumnDefinition Width="40"/>
             <ColumnDefinition />
             <ColumnDefinition Width="20"/>
             <ColumnDefinition />
             <ColumnDefinition Width="20"/>
             <ColumnDefinition />
-            <ColumnDefinition Width="25" />
+            <ColumnDefinition Width="40" />
         </Grid.ColumnDefinitions>
 
         <!-- Navigation Bar -->
