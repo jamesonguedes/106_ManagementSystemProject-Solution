@@ -102,13 +102,20 @@
                     HorizontalAlignment="Left">EMPLOYEE INFO</Label>
         </Border>
 
-        <Grid Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" Background="#fbf9ff">
+        <ScrollViewer Grid.Row="5"
+                      Grid.Column="1"
+                      Grid.ColumnSpan="3"
+                      Background="#fbf9ff"
+                      VerticalScrollBarVisibility="Auto"
+                      HorizontalScrollBarVisibility="Disabled">
             <StackPanel Margin="40">
 
                 <DataGrid x:Name="dgManageEmployee"
                   Height="200"
                   AutoGenerateColumns="False"
                   IsReadOnly="True"
+                  ScrollViewer.VerticalScrollBarVisibility="Auto"
+                  ScrollViewer.HorizontalScrollBarVisibility="Auto"
                   Margin="0,0,0,20">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Employee ID"
@@ -218,7 +225,7 @@
 
             </StackPanel>
 
-        </Grid>
+        </ScrollViewer>
 
 
 
