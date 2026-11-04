@@ -27,7 +27,7 @@ namespace _106_ManagementSystemProject
 
         private void AdminDashboard_Click(object sender, RoutedEventArgs e)         
         {                                                                           
-            if(txtUsername.Text == "Admin" && txtPassword.Password == "Admin123")                                         
+            if(txtAdminEmail.Text == "admin@example.com" && txtAdminPassword.Password == "Admin123")                                         
             {                                                                       
                 MessageBox.Show("Login successful");
                 AdminDashboardWindow adminDashboardWindow = new AdminDashboardWindow();  
@@ -35,13 +35,13 @@ namespace _106_ManagementSystemProject
             }                                                                       
             else                                                                    
             {                                                                       
-                MessageBox.Show("Please enter your username and password.");       
+                MessageBox.Show("Please enter your admin email and password.");       
             }                                                                       
         }
 
         private void EmployeeDashboard_Click(object sender, RoutedEventArgs e)
         {
-            if (txtUsername.Text == "Employee" && txtPassword.Password == "Employee123")
+            if (txtEmployeeEmail.Text == "employee@example.com" && txtEmployeePassword.Password == "Employee123")
             {
                 MessageBox.Show("Login successful");
                 EmployeeDashboardWindow employeeDashboardWindow = new EmployeeDashboardWindow();
@@ -49,9 +49,8 @@ namespace _106_ManagementSystemProject
             }
             else
             {
-                MessageBox.Show("Please enter your username and password.");
+                MessageBox.Show("Please enter your employee email and password.");
             }
         }
-
     }
 }
