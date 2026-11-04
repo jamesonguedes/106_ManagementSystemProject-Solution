@@ -12,7 +12,7 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <ListBox Grid.ColumnSpan="2" Margin="5,50,0,40" HorizontalAlignment="Left" Width="990"/>
+        <ListBox Grid.ColumnSpan="2" Margin="5,50,0,73" HorizontalAlignment="Left" Width="990"/>
         <StackPanel Margin="0,96,0,73" Width="444" HorizontalAlignment="Center">
 
             <TextBlock 
