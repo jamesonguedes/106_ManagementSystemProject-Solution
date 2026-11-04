@@ -8,23 +8,21 @@
       Title="Login" Height="600" Width="1000">
 
     <StackPanel>
-        <ListBox Height="479" Width="942">
+        <ListBox Height="436" Width="942">
             <TextBlock 
            Text="Login Page"
            FontWeight="Bold"
-           FontSize="30"
-           />
-
-
-            <TextBlock 
+           FontSize="30"/>
+            
+           <TextBlock 
            Text="Username"
            FontSize="20"
            FontWeight="Bold"/>
 
             <TextBox 
-         x:Name="txtUsername"
-         Height="35"
-         Margin="0,5,0,20" Width="837"/>
+            x:Name="txtUsername"
+            Height="35"
+            Margin="0,5,0,20" Width="837"/>
 
             <TextBlock 
            Text="Password"
@@ -45,12 +43,12 @@
 
             <Button 
             Content="Login"
-        Foreground="#FBF9FF"
-        Background="#9395D3"
-        Width="250"
-        Height="40"
-        Margin="0,5,0,20"
-        Click="AdminDashboard_Click"/>
+            Foreground="#FBF9FF"
+            Background="#9395D3"
+            Width="250"
+            Height="40"
+            Margin="0,5,0,20"
+            Click="AdminDashboard_Click"/>
         </ListBox>
     </StackPanel>
 </Page>

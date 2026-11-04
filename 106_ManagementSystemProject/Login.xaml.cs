@@ -25,14 +25,33 @@ namespace _106_ManagementSystemProject
         // Login Methods
         // -----------------------
 
-        // This method below is referent to the temporary button on the Login page
-        // so it can be deleted later
-        // ------------------------------------------------------------------------
-        private void AdminDashboard_Click(object sender, RoutedEventArgs e)         // DELETE LATER
-        {                                                                           // DELETE LATER
-            AdminDashboardWindow dashboard = new AdminDashboardWindow();            // DELETE LATER
-            dashboard.Show();                                                       // DELETE LATER
-        }                                                                           // DELETE LATER
-        // ------------------------------------------------------------------------
+        private void AdminDashboard_Click(object sender, RoutedEventArgs e)         
+        {                                                                           
+            if(txtUsername.Text == "Admin" && txtPassword.Password == "Admin123")                                         
+            {                                                                       
+                MessageBox.Show("Login successful");
+                AdminDashboardWindow adminDashboardWindow = new AdminDashboardWindow();  
+                adminDashboardWindow.Show();
+            }                                                                       
+            else                                                                    
+            {                                                                       
+                MessageBox.Show("Please enter your username and password.");       
+            }                                                                       
+        }
+
+        private void EmployeeDashboard_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtUsername.Text == "Employee" && txtPassword.Password == "Employee123")
+            {
+                MessageBox.Show("Login successful");
+                EmployeeDashboardWindow employeeDashboardWindow = new EmployeeDashboardWindow();
+                employeeDashboardWindow.Show();
+            }
+            else
+            {
+                MessageBox.Show("Please enter your username and password.");
+            }
+        }
+
     }
 }
