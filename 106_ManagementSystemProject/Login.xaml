@@ -58,9 +58,7 @@
              Margin="0,20,0,30"
              Click="AdminDashboard_Click"/>
         </StackPanel>
-
-
-
+        
         <StackPanel Width="444" Margin="0,96,0,69" HorizontalAlignment="Center" Grid.Column="1">
             <TextBlock 
                  Text="Employee Login"
