@@ -8,14 +8,15 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AboutUs">
 
-    
-    <StackPanel>
-        <ListBox Height="479" Width="942">
+
+
+    <ListBox Height="479" Width="942">
+        <StackPanel Margin="0,0,0,0">
             <TextBlock 
            Text="About Us"
            FontWeight="Bold"
            FontSize="30"
-           />
-        </ListBox>
-    </StackPanel>
+           HorizontalAlignment=""/>
+        </StackPanel>
+    </ListBox>
 </Page>
