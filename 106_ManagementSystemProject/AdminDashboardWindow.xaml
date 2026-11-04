@@ -114,6 +114,7 @@
                   Height="200"
                   AutoGenerateColumns="False"
                   IsReadOnly="True"
+                  SelectionChanged="dgManageEmployee_SelectionChanged"
                   ScrollViewer.VerticalScrollBarVisibility="Auto"
                   ScrollViewer.HorizontalScrollBarVisibility="Auto"
                   Margin="0,0,0,20">
@@ -217,11 +218,14 @@
                             Click="Delete_Click"/>
                 </StackPanel>
 
-                <!-- Display saved employees on list -->
+                <!-- Display saved employees on list 
                 <TextBlock Text="Saved employees:" Margin="0,20,0,8" />
                 <ListBox x:Name="EmployeesListBox"
                          DisplayMemberPath="FirstName + LastName"
                          Height="150" />
+                -->
+                
+                
 
             </StackPanel>
 

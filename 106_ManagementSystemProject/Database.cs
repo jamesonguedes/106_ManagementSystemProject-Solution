@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.ExceptionServices;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Data.Sqlite;
@@ -122,6 +123,39 @@ namespace _106_ManagementSystemProject
                 }
             }
         }
+
+        // METHOD 05: called in the Employee Info
+        public static void UpdateEmployee(Employee employee)
+        {
+            using (SqliteConnection connection =
+                new SqliteConnection("Data Source=employees.db"))
+            {
+                connection.Open();
+                string sql = @"UPDATE Employees
+                               SET FirstName = @FirstName,
+                                   LastName = @LastName,
+                                   Email = @Email,
+                                   Phone = @Phone,
+                                   JobTitle = @JobTitle,
+                                   Department = @Department
+                                   WHERE Id = @Id;";
+                using (SqliteCommand command =
+                    new SqliteCommand(sql, connection))
+                {
+                    command.Parameters.AddWithValue("@Id", employee.Id);
+                    command.Parameters.AddWithValue("@FirstName", employee.FirstName);
+                    command.Parameters.AddWithValue("@LastName", employee.LastName);
+                    command.Parameters.AddWithValue("@Email", employee.Email);
+                    command.Parameters.AddWithValue("@Phone", employee.Phone);
+                    command.Parameters.AddWithValue("@JobTitle", employee.JobTitle);
+                    command.Parameters.AddWithValue("@Department", employee.Department);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+
+        }
+        // ------------------------------------------------------------------------------
         // ------------------------------------------------------------------------------
     }
 }

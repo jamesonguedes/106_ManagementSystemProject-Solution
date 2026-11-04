@@ -32,7 +32,13 @@ namespace _106_ManagementSystemProject
         // Buttons: Save, About, Delete, Update ------------------------------------------
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            string firstName = txtFirstName.Text.Trim();    // Trim() deletes an extra space before or after
+            // Trim() deletes an extra space before or after
+            string firstName = txtFirstName.Text.Trim();
+            string lastName = txtLastName.Text.Trim();
+            string email = txtEmail.Text.Trim();
+            string phone = txtPhone.Text.Trim(); 
+            string jobTitle = txtJobTitle.Text.Trim();
+            string department = txtDepartment.Text.Trim();
 
             // Let's check if all fields are full:
             if (string.IsNullOrWhiteSpace(firstName))
@@ -41,35 +47,30 @@ namespace _106_ManagementSystemProject
                 return;
             }
 
-            string lastName = txtLastName.Text.Trim();
             if (string.IsNullOrWhiteSpace(lastName))
             {
                 MessageBox.Show("Please enter the employee's Last Name.");
                 return;
             }
 
-            string email = txtEmail.Text.Trim();
             if (string.IsNullOrWhiteSpace(email))
             {
                 MessageBox.Show("Please enter the employee's Email.");
                 return;
             }
 
-            string phone = txtPhone.Text.Trim();
             if (string.IsNullOrWhiteSpace(phone))
             {
                 MessageBox.Show("Please enter the employee's Phone.");
                 return;
             }
 
-            string jobTitle = txtJobTitle.Text.Trim();
             if (string.IsNullOrWhiteSpace(jobTitle))
             {
                 MessageBox.Show("Please enter the employee's Job Title.");
                 return;
             }
 
-            string department = txtDepartment.Text.Trim();
             if (string.IsNullOrWhiteSpace(department))
             {
                 MessageBox.Show("Please enter the employee's Department.");
@@ -106,7 +107,85 @@ namespace _106_ManagementSystemProject
 
         private void Update_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Under Maintenance");                   // UNDER MAINTENANCE!!!
+            // Checks if a row is selected
+            Employee selectedEmployee = dgManageEmployee.SelectedItem as Employee;
+            if (selectedEmployee == null)
+            {
+                MessageBox.Show("Please select an employee to delete.");
+                return;
+            }
+
+            // Trim() deletes an extra space before or after
+            string firstName = txtFirstName.Text.Trim();
+            string lastName = txtLastName.Text.Trim();
+            string email = txtEmail.Text.Trim();
+            string phone = txtPhone.Text.Trim();
+            string jobTitle = txtJobTitle.Text.Trim();
+            string department = txtDepartment.Text.Trim();
+
+            // Let's check if all fields are full:
+            if (string.IsNullOrWhiteSpace(firstName))
+            {
+                MessageBox.Show("Please enter the employee's First Name.");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(lastName))
+            {
+                MessageBox.Show("Please enter the employee's Last Name.");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(email))
+            {
+                MessageBox.Show("Please enter the employee's Email.");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(phone))
+            {
+                MessageBox.Show("Please enter the employee's Phone.");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(jobTitle))
+            {
+                MessageBox.Show("Please enter the employee's Job Title.");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(department))
+            {
+                MessageBox.Show("Please enter the employee's Department.");
+                return;
+            }
+
+            // Create a temporary employee instance:
+            Employee employee = new Employee();
+            employee.Id = selectedEmployee.Id; // Make sure replaces the one selected
+            employee.FirstName = firstName;
+            employee.LastName = lastName;
+            employee.Email = email;
+            employee.Phone = phone;
+            employee.JobTitle = jobTitle;
+            employee.Department = department;
+
+            // Add the temporary employee instance to the database:
+            Database.UpdateEmployee(employee);
+
+            // Displays the list of emlployees in the DataGrid:
+            LoadEmployees();
+
+            // Message to be displayed when new employee is added:
+            MessageBox.Show("Employee Id " + employee.Id + " has been updated successfully!");
+
+            // Lets make sure all the fields are clean :)
+            txtFirstName.Clear();
+            txtLastName.Clear();
+            txtEmail.Clear();
+            txtPhone.Clear();
+            txtJobTitle.Clear();
+            txtDepartment.Clear();
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
@@ -137,6 +216,25 @@ namespace _106_ManagementSystemProject
         }
         // ------------------------------------------------------------------------------
 
+        //  Fiils up fields with selected row -------------------------------------------
+        private void dgManageEmployee_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Employee selectedEmployee = dgManageEmployee.SelectedItem as Employee;
+
+            if (selectedEmployee == null)
+            {
+                return;
+            }
+
+            txtFirstName.Text = selectedEmployee.FirstName;
+            txtLastName.Text = selectedEmployee.LastName;
+            txtEmail.Text = selectedEmployee.Email;
+            txtPhone.Text = selectedEmployee.Phone;
+            txtJobTitle.Text = selectedEmployee.JobTitle;
+            txtDepartment.Text = selectedEmployee.Department;
+
+        }
+        // ------------------------------------------------------------------------------
 
         // -------------------------
         // Employee Info methods END
