@@ -5,16 +5,41 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:_106_ManagementSystemProject"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="ContactUs">
+      Title="ContactUs" Height="600" Width="1000">
 
-    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-        <ListBox Height="479" Width="942">
-            <TextBlock 
-           Text="Contact Us"
-           FontWeight="Bold"
+    <ListBox Height="482" Width="866"  HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Height="475" Width="855">
+            <TextBlock Text="Contact Us"
            FontSize="30"
-           />
-        </ListBox>
-    </StackPanel>
+           FontWeight="Bold"
+           HorizontalAlignment="Center"
+           VerticalAlignment="Center"
+           Margin="0,10,0,30"/>
+
+            <TextBlock Text="Write us a message"
+           FontWeight="Bold"
+              FontSize="20"
+              HorizontalAlignment="Center"/>
+
+            <TextBox x:Name="txtReason"
+             Height="200"
+             Width="450"
+             TextWrapping="Wrap"
+             AcceptsReturn="True"
+             Margin="0,5,0,20"/>
+
+            <Button 
+              Content="Send"
+              Width="250"
+              Height="40"
+              HorizontalAlignment="Center"
+              Click="Sumbit_Click"/>
+            
+            <Button Content="Back"
+            Width="250"
+            Height="40"
+            HorizontalAlignment="Center"
+            Click="Back_Click"/>
+        </StackPanel>
+    </ListBox>
 </Page>

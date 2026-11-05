@@ -24,5 +24,10 @@ namespace _106_ManagementSystemProject
         {
             InitializeComponent();
         }
+
+        private void ContactUsButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
