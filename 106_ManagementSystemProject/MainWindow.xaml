@@ -9,7 +9,7 @@
         FontFamily="Trebuchet MS" FontSize="20">
 
     <Grid Margin="0,0,0,0">
-        
+
         <!-- Background Image -->
         <Grid.Background>
             <ImageBrush ImageSource="/pexels-thongtran95-17643093.jpg"
@@ -41,13 +41,20 @@
                         FontSize="16" Foreground="#FBF9FF"
                         Content="LOGIN"
                         Click="Login_Click"/>
+
+
             </StackPanel>
+
         </Grid>
 
         <Frame Grid.Row="1" Name="MainArea" Source="Home.xaml"
                NavigationUIVisibility="Hidden">
-            
-        </Frame>
 
+
+        </Frame>
+        <Image Source="/Group 85.png"
+         Stretch="Uniform" 
+         Margin="382,56,382,332" 
+         Grid.Row="1"/>
     </Grid>
 </Window>

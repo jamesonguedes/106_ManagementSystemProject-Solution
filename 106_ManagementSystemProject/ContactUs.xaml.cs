@@ -24,5 +24,22 @@ namespace _106_ManagementSystemProject
         {
             InitializeComponent();
         }
+
+        private void Submit_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtName.Text == "" && txtEmail.Text == "" && txtMessage.Text != "")
+            {
+                MessageBox.Show("Please enter your name, email and message.");
+            }
+            else
+            {
+                MessageBox.Show("Your message has been submitted.");
+
+                // Clear the form
+                txtName.Clear();
+                txtEmail.Clear();
+                txtMessage.Clear();
+            }
+        }
     }
 }

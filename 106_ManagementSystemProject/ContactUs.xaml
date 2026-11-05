@@ -11,7 +11,7 @@
         <StackPanel Height="532" Width="855">
             
             <TextBlock Text="Contact Us"
-           FontSize="30"
+              FontSize="30"
            FontWeight="Bold"
            HorizontalAlignment="Center"
            VerticalAlignment="Center"
