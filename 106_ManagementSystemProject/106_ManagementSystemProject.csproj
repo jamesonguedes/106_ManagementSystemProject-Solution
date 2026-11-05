@@ -99,6 +99,9 @@
     </Compile>
     <Compile Include="Database.cs" />
     <Compile Include="Employee.cs" />
+    <Compile Include="EmployeeDashboardWindow.xaml.cs">
+      <DependentUpon>EmployeeDashboardWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>

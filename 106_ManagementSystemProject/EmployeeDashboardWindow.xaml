@@ -50,7 +50,15 @@
             <RowDefinition Height="40" />
         </Grid.RowDefinitions>
 
-        <!-- Top Ballons -->        
+        <TextBlock Text="EMPLOYEE DASHBOARD TEST"
+           Grid.Row="0"
+           Grid.Column="1"
+           FontSize="24"
+           FontWeight="Bold"
+           Foreground="Red"
+           HorizontalAlignment="Center"/>
+
+        <!-- Top Ballons -->
         <Grid Grid.Column="1" Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -108,5 +116,6 @@
                          FontWeight="Bold">Annual Leave</TextBox>
             </Border>
         </Grid>
+
     </Grid>
 </Window>
