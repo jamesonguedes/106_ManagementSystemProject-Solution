@@ -52,9 +52,5 @@
 
 
         </Frame>
-        <Image Source="/Group 85.png"
-         Stretch="Uniform" 
-         Margin="382,56,382,332" 
-         Grid.Row="1"/>
     </Grid>
 </Window>
