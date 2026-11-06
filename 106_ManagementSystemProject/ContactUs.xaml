@@ -7,39 +7,55 @@
       mc:Ignorable="d" 
       Title="ContactUs" Height="600" Width="1000">
 
-    <ListBox Height="482" Width="866"  HorizontalAlignment="Center" VerticalAlignment="Center">
-        <StackPanel Height="475" Width="855">
+    <ListBox Height="538" Width="866"  HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Height="532" Width="855">
+            
             <TextBlock Text="Contact Us"
-           FontSize="30"
+              FontSize="30"
            FontWeight="Bold"
            HorizontalAlignment="Center"
            VerticalAlignment="Center"
-           Margin="0,10,0,30"/>
+           Margin="0,10,0,20"/>
+
+            <TextBlock 
+             Text="Name"
+             FontSize="20"
+             FontWeight="Bold"
+             Margin="0,20,0,10"/>
+
+            <TextBox 
+             x:Name="txtName"
+             Height="35"/>
+
+            <TextBlock 
+              Text="Email"
+              FontSize="20"
+              FontWeight="Bold"
+              Margin="0,20,0,10"/>
+
+            <TextBox 
+              x:Name="txtEmail"
+              Height="35"/>
 
             <TextBlock Text="Write us a message"
-           FontWeight="Bold"
-              FontSize="20"
-              HorizontalAlignment="Center"/>
+              FontWeight="Bold"
+              FontSize="20"       
+              Margin="0,20,0,10"/>
 
-            <TextBox x:Name="txtReason"
-             Height="200"
-             Width="450"
+            <TextBox x:Name="txtMessage"
+             Height="109"
+             Width="814"
              TextWrapping="Wrap"
-             AcceptsReturn="True"
-             Margin="0,5,0,20"/>
-
+             AcceptsReturn="True"/>
+            
             <Button 
               Content="Send"
               Width="250"
               Height="40"
-              HorizontalAlignment="Center"
-              Click="Sumbit_Click"/>
-            
-            <Button Content="Back"
-            Width="250"
-            Height="40"
-            HorizontalAlignment="Center"
-            Click="Back_Click"/>
+              Margin="0,20,0,20"
+              Foreground="#FBF9FF"
+              Background="#9395D3"
+              Click="Submit_Click"/>
         </StackPanel>
     </ListBox>
 </Page>

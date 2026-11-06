@@ -7,8 +7,8 @@
       mc:Ignorable="d"
       Title="AboutUs" Height="600" Width="1000">
 
-    <ListBox Height="422" Width="866"  HorizontalAlignment="Center" VerticalAlignment="Center">
-        <StackPanel Height="416" Width="855">
+    <ListBox Height="302" Width="871"  HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Height="296" Width="855">
             <TextBlock Text="About Us"
            FontSize="30"
            FontWeight="Bold"
@@ -26,20 +26,10 @@
             FontFamily="Calibri"
             FontStyle="Italic"
             FontSize="18"
-            Width="659"
-            Margin="0,20,0,0">
+            Width="571"
+            Margin="50,0,50,50">
                 <Run Text="NZFTC is a leading organization in the field of Finances and Trade. We are dedicated to streamline our human resource management processes and improve our operational efficiency and effectiveness."/>
             </TextBlock>
-            
-            <Button 
-             Content="Contact us"
-             Margin="0,20,0,30"
-             Width="250"
-             Height="40"
-             HorizontalAlignment="Center"
-             Foreground="White"
-             Background="#9395D3"
-             Click="ContactUsButton_Click"/>
         </StackPanel>
     </ListBox>
 </Page>

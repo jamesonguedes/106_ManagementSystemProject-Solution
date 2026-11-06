@@ -24,16 +24,5 @@ namespace _106_ManagementSystemProject
         {
             InitializeComponent();
         }
-
-        private void Sumbit_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Under Maintenance");
-        }
-
-        private void Back_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Under Maintenance");
-
-        }
     }
 }

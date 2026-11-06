@@ -9,7 +9,12 @@
       Title="Home">
 
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-        <TextBlock FontSize="40" FontWeight="Bold" Foreground="White">Welcome</TextBlock>
+
+        <Image Source="/Group 85.png"
+           Stretch="Uniform" 
+           Height="204" Width="292"/>
+
+        <TextBlock FontSize="50" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"><Run Text="Welcome"/></TextBlock>
     </StackPanel>
-    
+
 </Page>
