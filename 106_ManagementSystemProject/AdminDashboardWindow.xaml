@@ -28,7 +28,7 @@
             <RowDefinition />
             <RowDefinition Height="25"/>
         </Grid.RowDefinitions>
-   
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="40"/>
             <ColumnDefinition />
@@ -62,7 +62,7 @@
                 -->
             </StackPanel>
         </Grid>
-        
+
         <!-- Quick Info Balloons -->
         <Border Grid.Row="2" Grid.Column="1"
                 Background="#fbf9ff"
@@ -153,7 +153,7 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                
+
                     <StackPanel Grid.Column="0">
                         <TextBlock Text="First Name"/>
                         <TextBox x:Name="txtFirstName"
@@ -224,9 +224,6 @@
                          DisplayMemberPath="FirstName + LastName"
                          Height="150" />
                 -->
-                
-                
-
             </StackPanel>
 
         </ScrollViewer>
@@ -239,6 +236,8 @@
             <Label  FontSize="14"
                     Foreground="#FBF9FF"
                     HorizontalAlignment="Left">LEAVE REQUESTS</Label>
+
+
         </Border>
         <ListBox Grid.Row="5" Grid.Column="5"></ListBox>
 
@@ -264,7 +263,86 @@
                     Foreground="#FBF9FF"
                     HorizontalAlignment="Left">PAYROLL MANAGEMENT</Label>
         </Border>
-        <ListBox Grid.Row="8" Grid.Column="5"></ListBox>
+        <ListBox Grid.Row="8" Grid.Column="5">
+            <ScrollViewer Grid.Row="8"
+              Grid.Column="5"
+              Grid.ColumnSpan="3"
+              Background="#fbf9ff"
+              VerticalScrollBarVisibility="Auto"
+              HorizontalScrollBarVisibility="Disabled">
+                <StackPanel Height="445" Width="593">
+                    <DataGrid x:Name="dgPayroll"
+                        Height="159"
+                        AutoGenerateColumns="False"
+                        IsReadOnly="True" Width="578"
+          >
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Employee ID"
+                            Binding="{Binding EmployeeID}"
+                            Width="*"/>
+
+                            <DataGridTextColumn Header="Employee Name"
+                            Binding="{Binding EmployeeName}"
+                            Width="*"/>
+
+                            <DataGridTextColumn Header="Gross Salary"
+                            Binding="{Binding GrossSalary}"
+                            Width="*"/>
+
+                            <DataGridTextColumn Header="Tax"
+                            Binding="{Binding Tax}"
+                            Width="*"/>
+
+                            <DataGridTextColumn Header="Net Salary"
+                            Binding="{Binding NetSalary}"
+                            Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <StackPanel Grid.Column="0" Height="63">
+                        <TextBlock Text="Employee ID" Margin="5"/>
+                        <TextBox x:Name="txtEmployeeID"
+                        Height="25"
+                        Margin="0,5,0,10" Width="307"
+                        HorizontalAlignment="Left"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1">
+                        <TextBlock Text="Employee Name"/>
+                        <TextBox x:Name="txtEmployeeName"
+                            Height="25"
+                            Margin="0,5,0,10" Width="307"
+                            HorizontalAlignment="Left"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="2">
+                        <TextBlock Text="Gross Salary"/>
+                        <TextBox x:Name="txtGrossSalary"
+                           Height="25"
+                           Margin="0,5,0,10" Width="307"
+                            HorizontalAlignment="Left"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="3">
+                        <TextBlock Text="Tax"/>
+                        <TextBox x:Name="txtTax"
+                           Height="25"
+                           Margin="0,5,0,10" Width="307"
+                            HorizontalAlignment="Left"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="4">
+                        <TextBlock Text="Net Salary"/>
+                        <TextBox x:Name="txtNetSalary"
+                           Height="25"
+                           Margin="0,5,0,20" Width="307"
+                            HorizontalAlignment="Left"/>
+                    </StackPanel>
+                </StackPanel>
+
+            </ScrollViewer>
+        </ListBox>
 
     </Grid>
 
