@@ -23,5 +23,45 @@ namespace _106_ManagementSystemProject
         {
             InitializeComponent();
         }
+
+
+        private void RequestLeeave_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Under Maintenance");
+
+        }
+        private void UpdateLeave_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Under Maintenance");
+
+        }
+
+        private void DeleteLeave_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Under Maintenance");
+
+        }
+
+        private void dgManageEmployee_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            MessageBox.Show("Under Maintenance");
+
+            //            Employee selectedEmployee = dgLeaveRequests.SelectedItem as Employee;
+            //
+            //            if (selectedEmployee == null)
+            //            {
+            //                return;
+            //            }
+
+            //            txtLeaveType.Text = selectedEmployee.FirstName;
+            //            txtStartDate.Text = selectedEmployee.LastName;
+            //            txtEndDate.Text = selectedEmployee.Email;
+            //            txtHoursRequested.Text = selectedEmployee.Phone;
+            //            txtStatus.Text = selectedEmployee.JobTitle;
+            //            -->
+        }
+
+
     }
 }

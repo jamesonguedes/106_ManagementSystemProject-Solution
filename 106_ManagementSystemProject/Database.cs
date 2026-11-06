@@ -13,7 +13,10 @@ namespace _106_ManagementSystemProject
 {
     public class Database
     {
-        // METHOD 01: will be called in the AdminDashboardWindown.cs
+        //==============================================================================
+        // Employee METHODS
+        //==============================================================================
+        // Employee METHOD 01: will be called in the AdminDashboardWindown.cs
         public static void CreateDatabase()
         {
             using (SqliteConnection connection =
@@ -40,9 +43,7 @@ namespace _106_ManagementSystemProject
                 }
             }
         }
-        // ------------------------------------------------------------------------------
-
-        // METHOD 02: called in the Save_Click method in the AdminDashboardWindown.cs
+        // Employee METHOD 02: called in the Save_Click method in the AdminDashboardWindown.cs
         public static void AddEmployee(Employee employee)
         {
             using (SqliteConnection connection =
@@ -68,9 +69,7 @@ namespace _106_ManagementSystemProject
 
             }
         }
-        // ------------------------------------------------------------------------------
-
-        // METHOD 03: called in the LoadEmployees() method  in the AdminDashboardWindown.cs
+        // Employee METHOD 03: called in the LoadEmployees() method  in the AdminDashboardWindown.cs
         public static List<Employee> GetEmployees()
         {
             List<Employee> employees = new List<Employee>();
@@ -104,9 +103,7 @@ namespace _106_ManagementSystemProject
             }
             return employees;
         }
-        // ------------------------------------------------------------------------------
-
-        // METHOD 04: called in the Employee Info
+        // EmployeeMETHOD 04: called in the Employee Info
         public static void DeleteEmployee(int id)
         {
             using (SqliteConnection connection =
@@ -123,8 +120,7 @@ namespace _106_ManagementSystemProject
                 }
             }
         }
-
-        // METHOD 05: called in the Employee Info
+        // Employee METHOD 05: called in the Employee Info
         public static void UpdateEmployee(Employee employee)
         {
             using (SqliteConnection connection =
@@ -155,7 +151,13 @@ namespace _106_ManagementSystemProject
             }
 
         }
-        // ------------------------------------------------------------------------------
-        // ------------------------------------------------------------------------------
+        // ===============================================================================
+
+        // ❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️
+        //==============================================================================
+        // Leave Requests METHODS
+        //==============================================================================
+
+
     }
 }
