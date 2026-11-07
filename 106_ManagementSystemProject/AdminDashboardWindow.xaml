@@ -276,14 +276,14 @@
                     <Button Content="Approve"
                      Width="120"
                      Height="40"
-                     Margin="5"
+                     Margin="0,0,190,0"
                      Click="Approve_Click"/>
 
                     <Button Content="Reject"
                      Width="120"
                      Height="40"
                      HorizontalAlignment="Center"
-                     Margin="5"
+                     Margin="70,0,0,0"
                      Click="Reject_Click"/>
                 </StackPanel>
             </ScrollViewer>
