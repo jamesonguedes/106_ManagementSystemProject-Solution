@@ -140,6 +140,9 @@
                         <DataGridTextColumn Header="Department"
                                     Binding="{Binding Department}"
                                     Width="*"/>
+                        <DataGridTextColumn Header="Password"
+                                    Binding="{Binding Password}"
+                                    Width="*"/>
                     </DataGrid.Columns>
 
                 </DataGrid>
@@ -214,7 +217,6 @@
                     <Button Content="Delete"
                             Width="120"
                             Height="40"
-                            Margin="5"
                             Click="Delete_Click"/>
                 </StackPanel>
 
@@ -271,13 +273,14 @@
                         </DataGrid.Columns>
 
                     </DataGrid>
-
-                    <!-- Leave Request Buttons-->
                     <Button Content="Approve"
                      Width="120"
                      Height="40"
-                     Margin="0,0,190,0"
+                     HorizontalAlignment="Center"
+                     Margin="70,0,0,0"
                      Click="Approve_Click"/>
+
+                    <!-- Leave Request Buttons-->
 
                     <Button Content="Reject"
                      Width="120"

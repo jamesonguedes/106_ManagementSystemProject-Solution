@@ -97,7 +97,7 @@
     <Compile Include="ContactUs.xaml.cs">
       <DependentUpon>ContactUs.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Database.cs" />
+    <Compile Include="EmployeeDatabase.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="EmployeeDashboardWindow.xaml.cs">
       <DependentUpon>EmployeeDashboardWindow.xaml</DependentUpon>

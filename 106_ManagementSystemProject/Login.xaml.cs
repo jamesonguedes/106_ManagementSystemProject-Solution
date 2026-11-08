@@ -26,7 +26,8 @@ namespace _106_ManagementSystemProject
         // -----------------------
 
         private void AdminDashboard_Click(object sender, RoutedEventArgs e)         
-        {                                                                           
+        {          
+            // hardcoded for now...
             if(txtAdminEmail.Text == "admin@example.com" && txtAdminPassword.Password == "Admin123")                                         
             {                                                                       
                 MessageBox.Show("Login successful");
@@ -41,7 +42,23 @@ namespace _106_ManagementSystemProject
 
         private void EmployeeDashboard_Click(object sender, RoutedEventArgs e)
         {
-            if (txtEmployeeEmail.Text == "employee@example.com" && txtEmployeePassword.Password == "Employee123")
+            string email = txtEmployeeEmail.Text.Trim();
+            string password = txtEmployeePassword.Password.Trim();
+
+            if (string.IsNullOrWhiteSpace(email))
+            {
+                MessageBox.Show("Please enter your employee email.");
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(password))
+            {
+                MessageBox.Show("Please enter your employee password.");
+                return;
+            }
+
+            EmployeeDatabase.Login(email, password);
+
+            if (EmployeeDatabase.Login(email, password))
             {
                 MessageBox.Show("Login successful");
                 EmployeeDashboardWindow employeeDashboardWindow = new EmployeeDashboardWindow();
@@ -49,8 +66,20 @@ namespace _106_ManagementSystemProject
             }
             else
             {
-                MessageBox.Show("Please enter your employee email and password.");
+                MessageBox.Show("Invalid email or password. Please try again.");
             }
+            //         EmployeeDatabase.GetEmployees();
+
+            //       if (txtEmployeeEmail.Text == "employee@example.com" && txtEmployeePassword.Password == "Employee123")
+            //        {
+            //           MessageBox.Show("Login successful");
+            //           EmployeeDashboardWindow employeeDashboardWindow = new EmployeeDashboardWindow();
+            //           employeeDashboardWindow.Show();
+            //        }
+            //        else
+            //         {
+            //           MessageBox.Show("Please enter your employee email and password.");
+            //       }
         }
     }
 }

@@ -24,5 +24,10 @@ namespace _106_ManagementSystemProject
         {
             InitializeComponent();
         }
+
+        private void Submit_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Under Maintenance");
+        }
     }
 }

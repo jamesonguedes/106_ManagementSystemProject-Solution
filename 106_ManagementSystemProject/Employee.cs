@@ -17,6 +17,6 @@ namespace _106_ManagementSystemProject
         public string Phone { get; set; }
         public string JobTitle { get; set; }
         public string Department { get; set; }
-
+        public string Password { get; set; } // Add privacy later
     }
 }

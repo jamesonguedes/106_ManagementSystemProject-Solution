@@ -11,7 +11,7 @@ using Microsoft.Data.Sqlite;
 
 namespace _106_ManagementSystemProject
 {
-    public class Database
+    public class EmployeeDatabase
     {
         //==============================================================================
         // Employee METHODS
@@ -19,8 +19,7 @@ namespace _106_ManagementSystemProject
         // Employee METHOD 01: will be called in the AdminDashboardWindown.cs
         public static void CreateDatabase()
         {
-            using (SqliteConnection connection =
-                new SqliteConnection("Data Source=employees.db"))   // this is the database file where employee info will be saved
+            using (SqliteConnection connection = new SqliteConnection("Data Source=employees.db"))   // this is the database file where employee info will be saved
             {
                 connection.Open();
 
@@ -32,15 +31,12 @@ namespace _106_ManagementSystemProject
                         Email TEXT,
                         Phone TEXT,
                         JobTitle TEXT,
-                        Department TEXT
+                        Department TEXT,
+                        Password TEXT
                     );";
 
-                using (SqliteCommand command =
-                    new SqliteCommand(sql, connection))
-                {
+                using (SqliteCommand command = new SqliteCommand(sql, connection))
                     command.ExecuteNonQuery();
-
-                }
             }
         }
         // Employee METHOD 02: called in the Save_Click method in the AdminDashboardWindown.cs
@@ -51,8 +47,8 @@ namespace _106_ManagementSystemProject
             {
                 connection.Open();
 
-                string sql = @"INSERT INTO Employees (FirstName, LastName, Email, Phone, JobTitle, Department)
-                               VALUES (@FirstName, @LastName, @Email, @Phone, @JobTitle, @Department)";
+                string sql = @"INSERT INTO Employees (FirstName, LastName, Email, Phone, JobTitle, Department, Password)
+                               VALUES (@FirstName, @LastName, @Email, @Phone, @JobTitle, @Department, @Password)";
 
                 using (SqliteCommand command = new SqliteCommand(sql, connection))
                 {
@@ -62,10 +58,10 @@ namespace _106_ManagementSystemProject
                     command.Parameters.AddWithValue("@Phone", employee.Phone);
                     command.Parameters.AddWithValue("@JobTitle", employee.JobTitle);
                     command.Parameters.AddWithValue("@Department", employee.Department);
+                    command.Parameters.AddWithValue("@Password", employee.Password);
 
                     command.ExecuteNonQuery();
                 }
-
 
             }
         }
@@ -95,6 +91,7 @@ namespace _106_ManagementSystemProject
                             employee.Phone = reader.GetString(4);
                             employee.JobTitle = reader.GetString(5);
                             employee.Department = reader.GetString(6);
+                            employee.Password = reader.GetString(7);
 
                             employees.Add(employee);
                         }
@@ -134,6 +131,7 @@ namespace _106_ManagementSystemProject
                                    Phone = @Phone,
                                    JobTitle = @JobTitle,
                                    Department = @Department
+                                   Password = @Password,
                                    WHERE Id = @Id;";
                 using (SqliteCommand command =
                     new SqliteCommand(sql, connection))
@@ -145,19 +143,41 @@ namespace _106_ManagementSystemProject
                     command.Parameters.AddWithValue("@Phone", employee.Phone);
                     command.Parameters.AddWithValue("@JobTitle", employee.JobTitle);
                     command.Parameters.AddWithValue("@Department", employee.Department);
+                    command.Parameters.AddWithValue("@Password", employee.Password);
 
                     command.ExecuteNonQuery();
                 }
             }
 
         }
-        // ===============================================================================
 
-        // ❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️
-        //==============================================================================
-        // Leave Requests METHODS
-        //==============================================================================
-
-
+        public static bool Login(string email, string password)
+        {
+            using (SqliteConnection connection = new SqliteConnection("Data Source=employees.db"))
+            {
+                connection.Open();
+                string sql = "SELECT * FROM Employees WHERE Email = @Email AND Password = @Password;";
+                using (SqliteCommand command = new SqliteCommand(sql, connection))
+                {
+                    command.Parameters.AddWithValue("@Email", email);
+                    command.Parameters.AddWithValue("@Password", password);
+                    using (SqliteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            // Login successful
+                            Console.WriteLine("Login successful!");
+                            return true;
+                        }
+                        else
+                        {
+                            // Login failed
+                            Console.WriteLine("Invalid email or password.");
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

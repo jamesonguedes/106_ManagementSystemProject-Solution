@@ -14,16 +14,14 @@ using System.Windows.Shapes;
 
 namespace _106_ManagementSystemProject
 {
-    /// <summary>
-    /// Interaction logic for EmployeeDashboardWindow.xaml
-    /// </summary>
+
     public partial class EmployeeDashboardWindow : Window
     {
         public EmployeeDashboardWindow()
         {
             InitializeComponent();
-        }
 
+        }
 
         private void RequestLeeave_Click(object sender, RoutedEventArgs e)
         {

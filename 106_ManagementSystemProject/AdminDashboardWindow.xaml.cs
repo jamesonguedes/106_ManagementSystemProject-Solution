@@ -20,7 +20,7 @@ namespace _106_ManagementSystemProject
         public AdminDashboardWindow()
         {
             InitializeComponent();  // First start the applicaton
-            Database.CreateDatabase();
+            EmployeeDatabase.CreateDatabase();
             LoadEmployees();        // Load the employees from the database
 
         }
@@ -39,6 +39,7 @@ namespace _106_ManagementSystemProject
             string phone = txtPhone.Text.Trim(); 
             string jobTitle = txtJobTitle.Text.Trim();
             string department = txtDepartment.Text.Trim();
+            string password = "Employee123";    // DEFAULT PASSWORD
 
             // Let's check if all fields are full:
             if (string.IsNullOrWhiteSpace(firstName))
@@ -77,6 +78,8 @@ namespace _106_ManagementSystemProject
                 return;
             }
 
+
+
             // Create a temporary employee instance:
             Employee employee = new Employee();
             employee.FirstName = firstName;
@@ -85,9 +88,10 @@ namespace _106_ManagementSystemProject
             employee.Phone = phone;
             employee.JobTitle = jobTitle;
             employee.Department = department;
+            employee.Password = password;
 
             // Add the temporary employee instance to the database:
-            Database.AddEmployee(employee);
+            EmployeeDatabase.AddEmployee(employee);
 
             // Displays the list of emlployees in the DataGrid:
             LoadEmployees();
@@ -171,7 +175,7 @@ namespace _106_ManagementSystemProject
             employee.Department = department;
 
             // Add the temporary employee instance to the database:
-            Database.UpdateEmployee(employee);
+            EmployeeDatabase.UpdateEmployee(employee);
 
             // Displays the list of emlployees in the DataGrid:
             LoadEmployees();
@@ -204,7 +208,7 @@ namespace _106_ManagementSystemProject
                 return; // User chose not to delete
             }
 
-            Database.DeleteEmployee(selectedEmployee.Id);
+            EmployeeDatabase.DeleteEmployee(selectedEmployee.Id);
             LoadEmployees();
         }
         // ------------------------------------------------------------------------------
@@ -212,8 +216,9 @@ namespace _106_ManagementSystemProject
         //  Load list after saving the employee info ------------------------------------
         private void LoadEmployees()
         {
-            dgManageEmployee.ItemsSource = Database.GetEmployees(); // GetEmployees method is in the database class
+            dgManageEmployee.ItemsSource = EmployeeDatabase.GetEmployees(); // GetEmployees method is in the database class
         }
+
         // ------------------------------------------------------------------------------
 
         //  Fiils up fields with selected row -------------------------------------------
@@ -232,6 +237,17 @@ namespace _106_ManagementSystemProject
             txtPhone.Text = selectedEmployee.Phone;
             txtJobTitle.Text = selectedEmployee.JobTitle;
             txtDepartment.Text = selectedEmployee.Department;
+
+        }
+
+        private void Approve_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Under Maintenance");
+        }
+
+        private void Reject_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Under Maintenance");
 
         }
         // ------------------------------------------------------------------------------

@@ -165,7 +165,7 @@
             <!-- New Request Display area-->
             <Border Background="#fbf9ff"
                     Grid.Column="0"
-                    Grid.Row="4" Grid.ColumnSpan="2" Margin="5,0,915,0">
+                    Grid.Row="3" Margin="0,45,0,5" Grid.RowSpan="2">
                 <Grid HorizontalAlignment="Stretch">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -219,23 +219,23 @@
                                 Grid.ColumnSpan="5"
                                 Orientation="Horizontal"
                                 HorizontalAlignment="Center">
-                    <Button Content="Request"
+                        <Button Content="Request"
                                 Width="120"
                                 Height="40"
                                 Margin="5"
                                 Click="RequestLeeave_Click"/>
-                    <Button Content="Update"
+                        <Button Content="Update"
                                 Width="120"
                                 Height="40"
                                 HorizontalAlignment="Center"
                                 Margin="5"
                                 Click="UpdateLeave_Click"/>
-                    <Button Content="Delete"
+                        <Button Content="Delete"
                                 Width="120"
                                 Height="40"
                                 Margin="5"
                                 Click="DeleteLeave_Click"/>
-                </StackPanel>
+                    </StackPanel>
 
                 </Grid>
             </Border>
