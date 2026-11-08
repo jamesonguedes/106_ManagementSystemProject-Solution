@@ -234,19 +234,39 @@ namespace _106_ManagementSystemProject
             txtDepartment.Text = selectedEmployee.Department;
 
         }
-        // ------------------------------------------------------------------------------
+
+        private void Approve_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgLeaveRequest.SelectedItem is Employee selectedEmployee)
+            {
+                // Perform the approval action for the selected employee
+                MessageBox.Show($"Employee {selectedEmployee.FirstName} {selectedEmployee.LastName} has been approved.");
+            }
+            else
+            {
+                MessageBox.Show("Please select an employee to approve.");
+            }
+        }
+
+        private void Reject_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgLeaveRequest.SelectedItem is Employee selectedEmployee)
+            {
+                // Perform the rejection action for the selected employee
+                MessageBox.Show($"Employee {selectedEmployee.FirstName} {selectedEmployee.LastName} has been rejected.");
+            }
+            else
+            {
+                MessageBox.Show("Please select an employee to reject.");
+            }
+        }
+
+    }
+     // ------------------------------------------------------------------------------
 
         // -------------------------
         // Employee Info methods END
         // -------------------------
-
-
-    } // Class end
-
-
-
-
-
-
+    // Class end
 }   // Namespace end
 

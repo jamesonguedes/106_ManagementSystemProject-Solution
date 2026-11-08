@@ -228,66 +228,84 @@
 
         </ScrollViewer>
 
-
-
-
         <!-- Leave Requests -->
-        <Border Background="#000807" Grid.Row="4" Grid.Column="5">
-            <Label  FontSize="14"
-                    Foreground="#FBF9FF"
-                    HorizontalAlignment="Left">LEAVE REQUESTS</Label>
+        <Border Background="#000807"
+        Grid.Row="4"
+        Grid.Column="5">
+
+            <Label FontSize="14"
+           Foreground="#FBF9FF"
+           HorizontalAlignment="Left"
+           Content="LEAVE REQUESTS"/>
+
         </Border>
-        <ListBox Grid.Row="5" Grid.Column="5">
-            <ScrollViewer Grid.Row="5"
-               Grid.Column="5"
-               Grid.ColumnSpan="3"
-               Background="#fbf9ff"
-               VerticalScrollBarVisibility="Auto"
-               HorizontalScrollBarVisibility="Disabled">
 
-                <StackPanel Width="585">
-                    <DataGrid x:Name="dgLeaveRequest"
-                      Height="300"
-                      AutoGenerateColumns="False"
-                      IsReadOnly="True"
-                      Margin="0,0,0,20">
 
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Employee"
-                             Binding="{Binding EmployeeName}"
-                             Width="*"/>
+        <Grid Grid.Row="5"
+      Grid.Column="5">
 
-                            <DataGridTextColumn Header="Leave Type"
-                             Binding="{Binding LeaveType}"
-                             Width="*"/>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
 
-                            <DataGridTextColumn Header="Start Date"
-                             Binding="{Binding StartDate}"
-                             Width="*"/>
 
-                            <DataGridTextColumn Header="End Date"
-                             Binding="{Binding EndDate}"
-                             Width="*"/>
-                        </DataGrid.Columns>
+            <!-- Leave Requests DataGrid -->
+            <DataGrid x:Name="dgLeaveRequest"
+              Grid.Row="0"
+              AutoGenerateColumns="False"
+              IsReadOnly="True"
+              ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+              ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.RowSpan="2">
 
-                    </DataGrid>
+                <DataGrid.Columns>
 
-                    <!-- Leave Request Buttons-->
-                    <Button Content="Approve"
-                     Width="120"
-                     Height="40"
-                     Margin="0,0,190,0"
-                     Click="Approve_Click"/>
+                    <DataGridTextColumn Header="Employee"
+                                Binding="{Binding EmployeeName}"
+                                Width="2*"/>
 
-                    <Button Content="Reject"
-                     Width="120"
-                     Height="40"
-                     HorizontalAlignment="Center"
-                     Margin="70,0,0,0"
-                     Click="Reject_Click"/>
-                </StackPanel>
-            </ScrollViewer>
-        </ListBox>
+                    <DataGridTextColumn Header="Leave Type"
+                                Binding="{Binding LeaveType}"
+                                Width="2*"/>
+
+                    <DataGridTextColumn Header="Start Date"
+                                Binding="{Binding StartDate}"
+                                Width="*"/>
+
+                    <DataGridTextColumn Header="End Date"
+                                Binding="{Binding EndDate}"
+                                Width="*"/>
+
+                    <DataGridCheckBoxColumn Header="Select"
+                                    Binding="{Binding IsSelected}"
+                                    Width="60"/>
+
+                </DataGrid.Columns>
+
+            </DataGrid>
+
+
+            <!-- Buttons -->
+            <StackPanel Grid.Row="1"
+                Orientation="Horizontal"
+                HorizontalAlignment="Center"
+                Margin="0,10,0,10">
+
+                <Button Content="Approve"
+                Width="120"
+                Height="40"
+                Margin="5"
+                Click="Approve_Click"/>
+
+                <Button Content="Reject"
+                Width="120"
+                Height="40"
+                Margin="5"
+                Click="Reject_Click"/>
+
+            </StackPanel>
+
+        </Grid>
 
 
         <!-- Upcoming Events-->
@@ -296,7 +314,9 @@
                     Foreground="#FBF9FF"
                     HorizontalAlignment="Left">UPCOMING EVENTS</Label>
         </Border>
-        <ListBox Grid.Row="8" Grid.Column="1"></ListBox>
+        <ListBox Grid.Row="8" Grid.Column="1">
+
+        </ListBox>
 
         <!-- Resignation Requests -->
         <Border Background="#000807" Grid.Row="7" Grid.Column="3">
@@ -304,7 +324,54 @@
                     Foreground="#FBF9FF"
                     HorizontalAlignment="Left">RESIGNATION REQUEST</Label>
         </Border>
-        <ListBox Grid.Row="8" Grid.Column="3"></ListBox>
+        <ListBox Grid.Row="8" Grid.Column="3">
+            <ScrollViewer Grid.Row="8"
+               Grid.Column="3"
+               Grid.ColumnSpan="3"
+               Background="#fbf9ff"
+               VerticalScrollBarVisibility="Auto"
+               HorizontalScrollBarVisibility="Disabled" Height="449" Width="587">
+
+                <StackPanel Width="585">
+                    <DataGrid x:Name="dgResignationRequest"
+                      Height="292"
+                      AutoGenerateColumns="False"
+                      IsReadOnly="True"
+                      Margin="0,0,0,20" Width="573">
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Employee"
+                             Binding="{Binding EmployeeName}"
+                             Width="*"/>
+
+                            <DataGridTextColumn Header="Actioned"
+                             Binding="{Binding ActionedType}"
+                             Width="*"/>
+
+                            <DataGridTextColumn Header="End Date"
+                             Binding="{Binding EndDate}"
+                             Width="*"/>
+
+                            <DataGridCheckBoxColumn Header="Select"
+                             Binding="{Binding IsSelected}"
+                             Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <!-- Resignation Request Buttons-->
+                    <Button Content="Approve"
+                      Width="120"
+                      Height="40"
+                      Click="Approve_Click"/>
+
+                    <Button Content="Reject"
+                      Width="120"
+                      Height="40"
+                      Margin="0,10,0,0"
+                      Click="Reject_Click"/>
+                </StackPanel>
+            </ScrollViewer>
+        </ListBox>
 
         <!-- Payroll Management -->
         <Border Background="#000807" Grid.Row="7" Grid.Column="5">
@@ -312,81 +379,91 @@
                     Foreground="#FBF9FF"
                     HorizontalAlignment="Left">PAYROLL MANAGEMENT</Label>
         </Border>
-        <ListBox Grid.Row="8" Grid.Column="5">
-            <ScrollViewer Grid.Row="8"
-              Grid.Column="5"
-              Grid.ColumnSpan="3"
-              Background="#fbf9ff"
-              VerticalScrollBarVisibility="Auto"
-              HorizontalScrollBarVisibility="Disabled">
-                <StackPanel Height="445" Width="593">
-                    <DataGrid x:Name="dgPayroll"
-                        Height="193"
-                        AutoGenerateColumns="False"
-                        IsReadOnly="True" Width="578">
 
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Employee ID"
-                            Binding="{Binding EmployeeID}"
-                            Width="*"/>
+        <Grid Grid.Row="6"
+        Grid.Column="5" Margin="0,15,0,233" Grid.RowSpan="3">
 
-                            <DataGridTextColumn Header="Employee Name"
-                            Binding="{Binding EmployeeName}"
-                            Width="*"/>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
 
-                            <DataGridTextColumn Header="Gross Salary"
-                            Binding="{Binding GrossSalary}"
-                            Width="*"/>
 
-                            <DataGridTextColumn Header="Tax"
-                            Binding="{Binding Tax}"
-                            Width="*"/>
+            <!-- Payroll Management DataGrid -->
+            <DataGrid x:Name="dgPayrollManagement"
+            Grid.Row="0"
+            AutoGenerateColumns="False"
+            IsReadOnly="True"
+            ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+            ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.RowSpan="2" Margin="0,0,0,-227">
 
-                            <DataGridTextColumn Header="Net Salary"
-                            Binding="{Binding NetSalary}"
-                            Width="*"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
+                <DataGrid.Columns>
 
-                    <StackPanel Grid.Column="0" Margin="10,30,0,0" Width="146" HorizontalAlignment="Left">
-                        <TextBlock Text="Employee ID" Margin="0,0,0,5" Width="86" HorizontalAlignment="Left"/>
-                        <TextBox x:Name="txtEmployeeID"
-                        Height="30"
-                        Width="142"/>
-                    </StackPanel>
+                    <DataGridTextColumn Header="Employee ID"
+                      Binding="{Binding EmployeeID}"
+                      Width="*"/>
 
-                    <StackPanel Grid.Column="1" Margin="10,0,150,0" Width="146">
-                        <TextBlock Text="Employee Name" Margin="0,0,0,5" Width="86" HorizontalAlignment="Left"/>
-                        <TextBox x:Name="txtEmployeeName"
-                            Height="30" Width="142"/>
-                    </StackPanel>
+                    <DataGridTextColumn Header="Employee Name"
+                      Binding="{Binding EmployeeName}"
+                      Width="2*"/>
 
-                    <StackPanel Grid.Column="2" Width="146" HorizontalAlignment="Left">
-                        <TextBlock Text="Gross Salary" Margin="0,0,0,5" Width="86" HorizontalAlignment="Left"/>
-                        <TextBox x:Name="txtGrossSalary"
-                           Height="30"
-                           Margin="0,5,0,10" Width="142"/>
-                    </StackPanel>
+                    <DataGridTextColumn Header="Gross Salary"
+                      Binding="{Binding GrossSalary}"
+                      Width="2*"/>
 
-                    <StackPanel Grid.Column="3" Width="146" HorizontalAlignment="Left">
-                        <TextBlock Text="Tax" Margin="0,0,0,5" Width="86" HorizontalAlignment="Left"/>
-                        <TextBox x:Name="txtTax"
-                           Height="30"
-                           Margin="0,5,0,10" Width="142"
-                            HorizontalAlignment="Left"/>
-                    </StackPanel>
+                    <DataGridTextColumn Header="Tax"
+                      Binding="{Binding Tax}"
+                      Width="*"/>
 
-                    <StackPanel Grid.Column="4" Width="146" HorizontalAlignment="Left">
-                        <TextBlock Text="Net Salary"/>
-                        <TextBox x:Name="txtNetSalary"
-                           Height="30"
-                           Margin="0,5,0,10" Width="142"
-                            HorizontalAlignment="Left"/>
-                    </StackPanel>
-                </StackPanel>
+                    <DataGridTextColumn Header="Net Salary"
+                      Binding="{Binding NetSalary}"
+                      Width="*"/>
 
-            </ScrollViewer>
-        </ListBox>
+                </DataGrid.Columns>
+
+            </DataGrid>
+
+
+            <StackPanel Grid.Column="0" Margin="0,138,0,-190" Width="146" HorizontalAlignment="Left" Grid.Row="1" Height="57">
+                <TextBlock Text="Employee ID" Margin="0,0,0,5" Width="86" HorizontalAlignment="Left"/>
+                <TextBox x:Name="txtEmployeeID"
+                    Height="30"
+                    Width="120"
+                    HorizontalAlignment="Left"/>
+            </StackPanel>
+
+            <StackPanel Margin="120,138,360,-190" Grid.Row="1">
+                <TextBlock Text="Employee Name" Margin="0,0,0,5" Width="86" HorizontalAlignment="Left"/>
+                <TextBox x:Name="txtEmployeeName"
+                        Height="30" Width="120"
+                        HorizontalAlignment="Left"/>
+            </StackPanel>
+
+            <StackPanel Width="120" HorizontalAlignment="Center" Margin="0,138,0,-190" Grid.Row="1">
+                <TextBlock Text="Gross Salary" Margin="0,0,0,5" Width="86" HorizontalAlignment="Left"/>
+                <TextBox x:Name="txtGrossSalary"
+                       Height="30" 
+                       Width="120"
+                       HorizontalAlignment="Left"/>
+            </StackPanel>
+
+            <StackPanel Margin="360,138,118,-193" Grid.Row="1">
+                <TextBlock Text="Tax" Margin="0,0,0,5" Width="86" HorizontalAlignment="Left"/>
+                <TextBox x:Name="txtTax"
+                       Height="30"
+                       Width="120"
+                       HorizontalAlignment="Left"/>
+            </StackPanel>
+
+            <StackPanel Width="118" HorizontalAlignment="Left" Margin="482,138,0,-190" Grid.Row="1">
+                <TextBlock Text="Net Salary" Margin="0,0,0,5" Width="86" HorizontalAlignment="Left"/>
+                <TextBox x:Name="txtNetSalary"
+                       Height="30"
+                       Width="120"
+                       HorizontalAlignment="Left"/>
+            </StackPanel>
+
+        </Grid>
 
     </Grid>
 

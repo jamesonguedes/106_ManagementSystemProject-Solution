@@ -24,5 +24,23 @@ namespace _106_ManagementSystemProject
         {
             InitializeComponent();
         }
+
+        private void Submit_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtName.Text) || string.IsNullOrWhiteSpace(txtEmail.Text) || string.IsNullOrWhiteSpace(txtMessage.Text))
+            {
+                MessageBox.Show("Please fill in all fields before submitting.");
+                return;
+            }
+            else
+            {
+                // Process the form submission (e.g., send email, save to database)
+                MessageBox.Show("Thank you for your message!");
+                txtName.Clear();
+                txtEmail.Clear();
+                txtMessage.Clear();
+            }
+            
+        }
     }
 }
