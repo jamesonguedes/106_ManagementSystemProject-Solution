@@ -144,7 +144,6 @@ namespace _106_ManagementSystemProject
 
         }
 
-
         public static bool Login(string email, string password)
         {
             using (SqliteConnection connection = new SqliteConnection("Data Source=employees.db"))

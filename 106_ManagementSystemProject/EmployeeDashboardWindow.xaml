@@ -166,9 +166,9 @@
             <Border Background="#fbf9ff"
                     Grid.Column="0"
                     Grid.Row="3" Margin="0,45,0,5" Grid.RowSpan="2">
-                <Grid HorizontalAlignment="Stretch">
+                <Grid HorizontalAlignment="Center"
+                      Margin="5">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
@@ -181,39 +181,46 @@
 
                     <StackPanel Grid.Column="0" Grid.Row="0">
                         <TextBlock Text="Leave Type"/>
-                        <TextBox x:Name="txtLeaveType"
-                        Height="30"
-                        Margin="0,5,0,10"/>
+                        <ComboBox x:Name="txtLeaveType"
+                                  Height="30"
+                                  Margin="5,5,5,0">
+                            <ComboBoxItem Content="Annual Leave"/>
+                            <ComboBoxItem Content="Sick Leave"/>
+                            <ComboBoxItem Content="Unpaid Leave"/>
+                        </ComboBox>
                     </StackPanel>
 
                     <StackPanel Grid.Column="1" Grid.Row="0">
                         <TextBlock Text="Start Date"/>
-                        <TextBox x:Name="txtStartDate"
-                        Height="30"
-                        Margin="0,5,0,10"/>
+                        <DatePicker x:Name="txtStartDate"
+                                    Height="30"
+                                    Margin="5,5,5,0"/>
                     </StackPanel>
 
                     <StackPanel Grid.Column="2" Grid.Row="0">
                         <TextBlock Text="End Date"/>
-                        <TextBox x:Name="txtEndDate"
-                        Height="30"
-                        Margin="0,5,0,10"/>
+                        <DatePicker x:Name="txtEndDate"
+                                    Height="30"
+                                    Margin="5,5,5,0"/>
                     </StackPanel>
 
                     <StackPanel Grid.Column="3" Grid.Row="0">
                         <TextBlock Text="HoursRequested"/>
                         <TextBox x:Name="txtHoursRequested"
-                        Height="30"
-                        Margin="0,5,0,10"/>
+                                 Height="30"
+                                 Margin="5,5,5,0"/>
                     </StackPanel>
 
+                    <!--
                     <StackPanel Grid.Column="4" Grid.Row="0">
                         <TextBlock Text="Status"/>
                         <TextBox x:Name="txtStatus"
                         Height="30"
                         Margin="0,5,0,10"/>
+                    
                     </StackPanel>
-
+                    -->
+                    
                     <StackPanel Grid.Column="0"
                                 Grid.Row="4"
                                 Grid.ColumnSpan="5"
@@ -222,21 +229,20 @@
                         <Button Content="Request"
                                 Width="120"
                                 Height="40"
-                                Margin="5"
+                                Margin="5,10,5,5"
                                 Click="RequestLeeave_Click"/>
                         <Button Content="Update"
                                 Width="120"
                                 Height="40"
                                 HorizontalAlignment="Center"
-                                Margin="5"
+                                Margin="5,10,5,5"
                                 Click="UpdateLeave_Click"/>
                         <Button Content="Delete"
                                 Width="120"
                                 Height="40"
-                                Margin="5"
+                                Margin="5,10,5,5"
                                 Click="DeleteLeave_Click"/>
                     </StackPanel>
-
                 </Grid>
             </Border>
 
@@ -282,6 +288,10 @@
                     <StackPanel Grid.Row="0"
                                 Grid.Column="1"
                                 Margin="20">
+                        <TextBlock x:Name="txtEmployeeId"
+                                   FontSize="20"
+                                   Foreground="#000807"
+                                   Margin="0,0,0,18"/>
                         <TextBlock x:Name="txtEmployeeRole"
                                    FontSize="20"
                                    Foreground="#000807"
@@ -365,7 +375,13 @@
                 <Border Background="#fbf9ff"
                     Grid.Column="4"
                     Grid.Row="1">
-                    <TextBox>Under Maintenance</TextBox>
+                    <TextBox>
+                        
+                        
+                        MESSAGE FOR TESTING
+                        CAN BE DELETED
+
+                    </TextBox>
                 </Border>
 
             </Grid>

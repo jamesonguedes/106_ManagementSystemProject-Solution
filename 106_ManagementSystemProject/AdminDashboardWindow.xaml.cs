@@ -30,6 +30,7 @@ namespace _106_ManagementSystemProject
         // -------------------------
 
         // Buttons: Save, About, Delete, Update ------------------------------------------
+
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             // Trim() deletes an extra space before or after
@@ -108,7 +109,6 @@ namespace _106_ManagementSystemProject
             txtJobTitle.Clear();
             txtDepartment.Clear();
         }
-
         private void Update_Click(object sender, RoutedEventArgs e)
         {
             // Checks if a row is selected
@@ -191,7 +191,6 @@ namespace _106_ManagementSystemProject
             txtJobTitle.Clear();
             txtDepartment.Clear();
         }
-
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
             
@@ -239,7 +238,6 @@ namespace _106_ManagementSystemProject
             txtDepartment.Text = selectedEmployee.Department;
 
         }
-
         private void Approve_Click(object sender, RoutedEventArgs e)
         {
             if (dgLeaveRequest.SelectedItem is Employee selectedEmployee)
@@ -252,7 +250,6 @@ namespace _106_ManagementSystemProject
                 MessageBox.Show("Please select an employee to approve.");
             }
         }
-
         private void Reject_Click(object sender, RoutedEventArgs e)
         {
             if (dgLeaveRequest.SelectedItem is Employee selectedEmployee)
@@ -265,7 +262,6 @@ namespace _106_ManagementSystemProject
                 MessageBox.Show("Please select an employee to reject.");
             }
         }
-
     }
      // ------------------------------------------------------------------------------
 

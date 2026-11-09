@@ -21,6 +21,7 @@ namespace _106_ManagementSystemProject
         {
             InitializeComponent();
 
+            txtEmployeeId.Text = "Employee ID: " + employee.Id.ToString();
             txtEmployeeName.Text = employee.FirstName + " " + employee.LastName;
             txtEmployeeRole.Text = "Job Title: " + employee.JobTitle;
             txtEmployeeEmail.Text = "Email: " + employee.Email;
@@ -30,8 +31,30 @@ namespace _106_ManagementSystemProject
 
         private void RequestLeeave_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Under Maintenance");
+            string leaveType = txtLeaveType.SelectedItem?.ToString();
+            DateTime startDate = txtStartDate.SelectedDate ?? DateTime.Now;
+            DateTime endDate = txtEndDate.SelectedDate ?? DateTime.Now;
+            int hoursRequested = int.Parse(txtHoursRequested.Text);
 
+            // Process the leave request
+
+            if (string.IsNullOrEmpty(leaveType))
+            {
+                MessageBox.Show("Please select a leave type.");
+                return;
+            }
+            if (startDate > endDate)
+            {
+                MessageBox.Show("Start date cannot be after end date.");
+                return;
+            }
+            if (hoursRequested <= 0)
+            {
+                MessageBox.Show("Please enter a valid number of hours requested.");
+                return;
+            }
+
+            MessageBox.Show($"Leave request submitted:\nType: {leaveType}\nStart Date: {startDate.ToShortDateString()}\nEnd Date: {endDate.ToShortDateString()}\nHours Requested: {hoursRequested}");
         }
         private void UpdateLeave_Click(object sender, RoutedEventArgs e)
         {
@@ -50,19 +73,6 @@ namespace _106_ManagementSystemProject
 
             MessageBox.Show("Under Maintenance");
 
-            //            Employee selectedEmployee = dgLeaveRequests.SelectedItem as Employee;
-            //
-            //            if (selectedEmployee == null)
-            //            {
-            //                return;
-            //            }
-
-            //            txtLeaveType.Text = selectedEmployee.FirstName;
-            //            txtStartDate.Text = selectedEmployee.LastName;
-            //            txtEndDate.Text = selectedEmployee.Email;
-            //            txtHoursRequested.Text = selectedEmployee.Phone;
-            //            txtStatus.Text = selectedEmployee.JobTitle;
-            //            -->
         }
 
     }
