@@ -245,9 +245,72 @@
                     Grid.Column="1"
                     Grid.Row="0"
                     Grid.RowSpan="5"
-                    CornerRadius="10"
-                    Margin="5">
-                <TextBox>Under Maintenance</TextBox>
+                    CornerRadius="25"
+                    Margin="25">
+                <Grid>
+                    <!-- Grid definition for personal info -->
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Image and name -->
+                    <StackPanel Grid.Row="0"
+                                Grid.Column="0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Top"
+                                Margin="0,10,0,5">
+                        <Ellipse Height="200"
+                                 Width="200"
+                                 HorizontalAlignment="Center">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="/pexels-amirsaeiddehghan-13108275.jpg"
+                                        Stretch="UniformToFill"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <TextBlock x:Name="txtEmployeeName"
+                                   FontSize="26"
+                                   FontWeight="Bold"
+                                   Foreground="#000807"
+                                   Margin="0,10,0,5"/>
+                    </StackPanel>
+                    <!-- Role, email, phone, department-->
+                    <StackPanel Grid.Row="0"
+                                Grid.Column="1"
+                                Margin="20">
+                        <TextBlock x:Name="txtEmployeeRole"
+                                   FontSize="20"
+                                   Foreground="#000807"
+                                   Margin="0,0,0,18"/>
+                        <TextBlock x:Name="txtEmployeeEmail"
+                                   FontSize="20"
+                                   Margin="0,0,0,18"
+                                   Foreground="#000807"/>
+                        <TextBlock x:Name="txtEmployeePhone"
+                                   FontSize="20"
+                                   Foreground="#000807"
+                                   Margin="0,0,0,18"/>
+                        <TextBlock x:Name="txtEmployeeDepartment"
+                                   FontSize="20"
+                                   Foreground="#000807"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="1"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="2">
+                        <TextBox TextWrapping="Wrap"
+                                 FontSize="15"
+                                 Foreground="#000807"
+                                 Margin="25,20,25,20">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </TextBox>
+                    </StackPanel>
+
+                </Grid>
             </Border>
         </Grid>
 

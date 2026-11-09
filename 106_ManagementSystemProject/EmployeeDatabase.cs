@@ -16,7 +16,6 @@ namespace _106_ManagementSystemProject
         //==============================================================================
         // Employee METHODS
         //==============================================================================
-        // Employee METHOD 01: will be called in the AdminDashboardWindown.cs
         public static void CreateDatabase()
         {
             using (SqliteConnection connection = new SqliteConnection("Data Source=employees.db"))   // this is the database file where employee info will be saved
@@ -39,7 +38,6 @@ namespace _106_ManagementSystemProject
                     command.ExecuteNonQuery();
             }
         }
-        // Employee METHOD 02: called in the Save_Click method in the AdminDashboardWindown.cs
         public static void AddEmployee(Employee employee)
         {
             using (SqliteConnection connection =
@@ -65,7 +63,6 @@ namespace _106_ManagementSystemProject
 
             }
         }
-        // Employee METHOD 03: called in the LoadEmployees() method  in the AdminDashboardWindown.cs
         public static List<Employee> GetEmployees()
         {
             List<Employee> employees = new List<Employee>();
@@ -100,7 +97,6 @@ namespace _106_ManagementSystemProject
             }
             return employees;
         }
-        // EmployeeMETHOD 04: called in the Employee Info
         public static void DeleteEmployee(int id)
         {
             using (SqliteConnection connection =
@@ -117,7 +113,6 @@ namespace _106_ManagementSystemProject
                 }
             }
         }
-        // Employee METHOD 05: called in the Employee Info
         public static void UpdateEmployee(Employee employee)
         {
             using (SqliteConnection connection =
@@ -131,7 +126,6 @@ namespace _106_ManagementSystemProject
                                    Phone = @Phone,
                                    JobTitle = @JobTitle,
                                    Department = @Department
-                                   Password = @Password,
                                    WHERE Id = @Id;";
                 using (SqliteCommand command =
                     new SqliteCommand(sql, connection))
@@ -143,13 +137,13 @@ namespace _106_ManagementSystemProject
                     command.Parameters.AddWithValue("@Phone", employee.Phone);
                     command.Parameters.AddWithValue("@JobTitle", employee.JobTitle);
                     command.Parameters.AddWithValue("@Department", employee.Department);
-                    command.Parameters.AddWithValue("@Password", employee.Password);
 
                     command.ExecuteNonQuery();
                 }
             }
 
         }
+
 
         public static bool Login(string email, string password)
         {
@@ -178,6 +172,42 @@ namespace _106_ManagementSystemProject
                     }
                 }
             }
+        }
+
+        public static Employee GetEmployeeByEmail(string email)
+        {
+            using (SqliteConnection connection =
+                new SqliteConnection("Data Source=employees.db"))
+            {
+                connection.Open();
+                string sql = "SELECT * FROM Employees WHERE Email = @Email;";
+
+                using (SqliteCommand command =
+                    new SqliteCommand(sql, connection))
+                {
+                    command.Parameters.AddWithValue("@Email", email);
+
+                    using (SqliteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            Employee employee = new Employee();
+
+                            employee.Id = reader.GetInt32(0);
+                            employee.FirstName = reader.GetString(1);
+                            employee.LastName = reader.GetString(2);
+                            employee.Email = reader.GetString(3);
+                            employee.Phone = reader.GetString(4);
+                            employee.JobTitle = reader.GetString(5);
+                            employee.Department = reader.GetString(6);
+                            employee.Password = reader.GetString(7);
+
+                            return employee;
+                        }
+                    }
+                }
+            }
+            return null;
         }
     }
 }

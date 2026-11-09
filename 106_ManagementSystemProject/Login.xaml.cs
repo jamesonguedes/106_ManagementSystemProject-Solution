@@ -56,12 +56,16 @@ namespace _106_ManagementSystemProject
                 return;
             }
 
-            EmployeeDatabase.Login(email, password);
-
             if (EmployeeDatabase.Login(email, password))
             {
                 MessageBox.Show("Login successful");
-                EmployeeDashboardWindow employeeDashboardWindow = new EmployeeDashboardWindow();
+
+                // Creates an instance of employee logged in
+                Employee employee = EmployeeDatabase.GetEmployeeByEmail(email);
+
+                EmployeeDashboardWindow employeeDashboardWindow =
+                    new EmployeeDashboardWindow(employee);
+
                 employeeDashboardWindow.Show();
             }
             else

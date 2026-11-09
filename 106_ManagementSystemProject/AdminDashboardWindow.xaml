@@ -219,15 +219,7 @@
                             Height="40"
                             Click="Delete_Click"/>
                 </StackPanel>
-
-                <!-- Display saved employees on list 
-                <TextBlock Text="Saved employees:" Margin="0,20,0,8" />
-                <ListBox x:Name="EmployeesListBox"
-                         DisplayMemberPath="FirstName + LastName"
-                         Height="150" />
-                -->
             </StackPanel>
-
         </ScrollViewer>
 
 

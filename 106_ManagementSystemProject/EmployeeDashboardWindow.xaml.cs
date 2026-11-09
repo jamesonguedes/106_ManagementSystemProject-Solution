@@ -17,10 +17,15 @@ namespace _106_ManagementSystemProject
 
     public partial class EmployeeDashboardWindow : Window
     {
-        public EmployeeDashboardWindow()
+        public EmployeeDashboardWindow(Employee employee)
         {
             InitializeComponent();
 
+            txtEmployeeName.Text = employee.FirstName + " " + employee.LastName;
+            txtEmployeeRole.Text = "Job Title: " + employee.JobTitle;
+            txtEmployeeEmail.Text = "Email: " + employee.Email;
+            txtEmployeePhone.Text = "Phone: " + employee.Phone;
+            txtEmployeeDepartment.Text = "Department: " + employee.Department;
         }
 
         private void RequestLeeave_Click(object sender, RoutedEventArgs e)
@@ -59,7 +64,6 @@ namespace _106_ManagementSystemProject
             //            txtStatus.Text = selectedEmployee.JobTitle;
             //            -->
         }
-
 
     }
 }
