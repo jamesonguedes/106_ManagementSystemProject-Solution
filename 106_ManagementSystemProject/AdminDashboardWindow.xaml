@@ -319,7 +319,7 @@
             <ScrollViewer Grid.Row="0"
                       Background="#fbf9ff"
                       VerticalScrollBarVisibility="Auto"
-                      HorizontalScrollBarVisibility="Disabled" Margin="0,0,0,-137" Grid.RowSpan="2">
+                      HorizontalScrollBarVisibility="Disabled">
                 <StackPanel Width="576" Height="583">
 
                     <!-- Payroll Management DataGrid -->

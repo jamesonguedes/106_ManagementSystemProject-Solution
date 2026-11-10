@@ -391,7 +391,7 @@
                              Height="100"
                              TextWrapping="Wrap"
                              AcceptsReturn="True"
-                             Margin="0,5,0,20"/>
+                             Margin="0,5,0,20" TextChanged="txtDescription_TextChanged"/>
 
                         <Button Content="Submit Grievance"
                             Width="140"

@@ -129,5 +129,10 @@ namespace _106_ManagementSystemProject
 
             MessageBox.Show("Grievance submitted successfully.");
         }
+
+        private void txtDescription_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

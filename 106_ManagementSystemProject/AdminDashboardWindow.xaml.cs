@@ -271,7 +271,7 @@ namespace _106_ManagementSystemProject
         private void UpdatePayroll_Click(object sender, RoutedEventArgs e)
         {
             // Checks if a row is selected
-            Employee selectedEmployee = dgManagePayroll.SelectedItem as Employee;
+            Employee selectedEmployee = dgPayrollManagement.SelectedItem as Employee;
             if (selectedEmployee == null)
             {
                 MessageBox.Show("Please select an employee to delete.");
@@ -319,7 +319,7 @@ namespace _106_ManagementSystemProject
             // Create a temporary employee instance:
             Employee employee = new Employee();
             employee.Id = selectedEmployee.Id; // Make sure replaces the one selected
-            employee.Name = employeeName;
+            employee.FirstName = employeeName;
             employee.GrossSalary = GrossSalary;
             employee.Tax = Tax;
             employee.NetSalary = NetSalary;
