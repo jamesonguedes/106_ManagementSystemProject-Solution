@@ -112,5 +112,22 @@ namespace _106_ManagementSystemProject
                 LeaveDatabase.GetMyRequests(employeeId); // Get my reques in the leave database
         }
 
+        private void SubmitGrievance_Click(object sender, RoutedEventArgs e)
+        {
+            string subject = txtSubject.Text.Trim();
+            string DescriptionText = txtDescription.Text.Trim();
+            if (string.IsNullOrEmpty(subject))
+            {
+                MessageBox.Show("Please enter a subject for the grievance.");
+                return;
+            }
+            if (string.IsNullOrEmpty(DescriptionText))
+            {
+                MessageBox.Show("Please enter a description for the grievance.");
+                return;
+            }
+
+            MessageBox.Show("Grievance submitted successfully.");
+        }
     }
 }

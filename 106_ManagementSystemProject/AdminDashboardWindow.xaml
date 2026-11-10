@@ -265,21 +265,22 @@
                         </DataGrid.Columns>
 
                     </DataGrid>
-                    <Button Content="Approve"
+                    
+                    <StackPanel Orientation="Horizontal" Width="255">
+                        <Button Content="Approve"
                      Width="120"
                      Height="40"
                      HorizontalAlignment="Center"
-                     Margin="70,0,0,0"
+                     Margin="5,0,0,0"
                      Click="Approve_Click"/>
 
-                    <!-- Leave Request Buttons-->
-
-                    <Button Content="Reject"
+                        <Button Content="Reject"
                      Width="120"
                      Height="40"
                      HorizontalAlignment="Center"
-                     Margin="70,0,0,0"
+                     Margin="5,0,0,0"
                      Click="Reject_Click"/>
+                    </StackPanel>
                 </StackPanel>
             </ScrollViewer>
         </ListBox>
@@ -316,12 +317,10 @@
             </Grid.RowDefinitions>
 
             <ScrollViewer Grid.Row="0"
-                      Grid.Column="5"
-                      Grid.ColumnSpan="3"
                       Background="#fbf9ff"
                       VerticalScrollBarVisibility="Auto"
-                      HorizontalScrollBarVisibility="Disabled">
-                <StackPanel Width="575" Height="471">
+                      HorizontalScrollBarVisibility="Disabled" Margin="0,0,0,-137" Grid.RowSpan="2">
+                <StackPanel Width="576" Height="583">
 
                     <!-- Payroll Management DataGrid -->
                     <DataGrid x:Name="dgPayrollManagement"
@@ -330,7 +329,7 @@
                       IsReadOnly="True"
                       HorizontalAlignment="Stretch"
                       ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                      ScrollViewer.VerticalScrollBarVisibility="Auto" Height="67">
+                      ScrollViewer.VerticalScrollBarVisibility="Auto" Height="219" Width="577">
 
                         <DataGrid.Columns>
 
@@ -357,38 +356,58 @@
                         </DataGrid.Columns>
 
                     </DataGrid>
-                    <StackPanel Width="126">
-                        <TextBlock Text="Employee ID" Margin="0,0,0,5" Width="86" HorizontalAlignment="Left"/>
+                    <StackPanel Grid.Column="0">
+                        <TextBlock Text="Employee ID"/>
                         <TextBox x:Name="txtEmployeeID"
-                        Height="30"
-                        Width="122"
-                        HorizontalAlignment="Left"/>
+                           Height="30"
+                           Margin="0,5,0,10"/>
                     </StackPanel>
-                    <StackPanel Width="128">
-                        <TextBlock Text="Employee Name" Margin="0,0,0,5" Width="86" HorizontalAlignment="Left"/>
+
+                    <StackPanel Grid.Column="1">
+                        <TextBlock Text="Employee Name"/>
                         <TextBox x:Name="txtEmployeeName"
-                            Height="30" Width="122"
-                         HorizontalAlignment="Left"/>
+                           Height="30"
+                           Margin="0,5,0,10"/>
                     </StackPanel>
-                    <StackPanel Width="124">
-                        <TextBlock Text="Gross Salary" Margin="0,0,0,5" Width="86" HorizontalAlignment="Left"/>
+
+                    <StackPanel Grid.Column="2">
+                        <TextBlock Text="Gross Salary"/>
                         <TextBox x:Name="txtGrossSalary"
                            Height="30"
-                           Width="122"/>
+                           Margin="0,5,0,10"/>
                     </StackPanel>
-                    <StackPanel Width="122">
+
+                    <StackPanel Grid.Column="3">
                         <TextBlock Text="Tax"/>
                         <TextBox x:Name="txtTax"
                            Height="30"
-                           Margin="0,5,0,10" Width="122"
-                            HorizontalAlignment="Left"/>
+                           Margin="0,5,0,10"/>
                     </StackPanel>
-                    <StackPanel Width="123">
+
+                    <StackPanel Grid.Column="4">
                         <TextBlock Text="Net Salary"/>
                         <TextBox x:Name="txtNetSalary"
                            Height="30"
-                           Margin="0,5,0,10" Width="122"
-                            HorizontalAlignment="Left"/>
+                           Margin="0,5,0,10"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Width="390">
+                        <Button Content="Add Payroll"
+                            Width="120"
+                            Height="40"
+                            Margin="5"
+                            Click="AddPayroll_Click"/>
+
+                        <Button Content="Update Payroll"
+                            Width="120"
+                            Height="40"
+                            Margin="5"
+                            Click="UpdatePayroll_Click"/>
+
+                        <Button Content="Delete Payroll"
+                            Width="120"
+                            Height="40"
+                            Margin="5"
+                            Click="DeletePayroll_Click"/>
                     </StackPanel>
                 </StackPanel>
             </ScrollViewer>

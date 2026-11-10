@@ -393,11 +393,11 @@
                              AcceptsReturn="True"
                              Margin="0,5,0,20"/>
 
-                        <Button Content="Submit"
+                        <Button Content="Submit Grievance"
                             Width="140"
                             Height="30"
                             HorizontalAlignment="Center"
-                            Click="Submit_Click"/>
+                            Click="SubmitGrievance_Click"/>
 
                     </StackPanel>
                 </Border>
