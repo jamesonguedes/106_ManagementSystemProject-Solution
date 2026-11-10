@@ -81,7 +81,7 @@ namespace _106_ManagementSystemProject
 
 
 
-            // Create a temporary employee instance:
+            // Create a temporary Employee instance:
             Employee employee = new Employee();
             employee.FirstName = firstName;
             employee.LastName = lastName;
