@@ -17,9 +17,12 @@ namespace _106_ManagementSystemProject
 
     public partial class EmployeeDashboardWindow : Window
     {
+        private int employeeId;
         public EmployeeDashboardWindow(Employee employee)
         {
             InitializeComponent();
+
+            employeeId = employee.Id;
 
             txtEmployeeId.Text = "Employee ID: " + employee.Id.ToString();
             txtEmployeeName.Text = employee.FirstName + " " + employee.LastName;
@@ -27,17 +30,23 @@ namespace _106_ManagementSystemProject
             txtEmployeeEmail.Text = "Email: " + employee.Email;
             txtEmployeePhone.Text = "Phone: " + employee.Phone;
             txtEmployeeDepartment.Text = "Department: " + employee.Department;
-        }
 
-        private void RequestLeeave_Click(object sender, RoutedEventArgs e)
+            LoadMyLeaveRequests();
+        }
+        // ================================================================
+        // Request Leave Method
+        // ================================================================
+        private void RequestLeave_Click(object sender, RoutedEventArgs e)
         {
-            string leaveType = txtLeaveType.SelectedItem?.ToString();
+            int id = employeeId;
+            string Name = txtEmployeeName.Text.Trim();
+            string leaveType = (txtLeaveType.SelectedItem as ComboBoxItem)?.Content?.ToString();
             DateTime startDate = txtStartDate.SelectedDate ?? DateTime.Now;
             DateTime endDate = txtEndDate.SelectedDate ?? DateTime.Now;
             int hoursRequested = int.Parse(txtHoursRequested.Text);
+            string status = "PENDING";
 
-            // Process the leave request
-
+            // Let's check if all fields are full:
             if (string.IsNullOrEmpty(leaveType))
             {
                 MessageBox.Show("Please select a leave type.");
@@ -55,6 +64,26 @@ namespace _106_ManagementSystemProject
             }
 
             MessageBox.Show($"Leave request submitted:\nType: {leaveType}\nStart Date: {startDate.ToShortDateString()}\nEnd Date: {endDate.ToShortDateString()}\nHours Requested: {hoursRequested}");
+
+            // Create a temporary LeaveRequest instance:
+            LeaveRequest leaveRequest = new LeaveRequest();
+
+            leaveRequest.Id = id;
+            leaveRequest.Name = Name;
+            leaveRequest.LeaveType = leaveType;
+            leaveRequest.StartDate = startDate;
+            leaveRequest.EndDate = endDate;
+            leaveRequest.HoursRequested = hoursRequested;
+            leaveRequest.Status = status;
+
+            // Adds the temporary LeaveRequest instance to the database:
+            LeaveDatabase.RequestLeave(leaveRequest);
+
+            // Displays the list of requests in the DataGrid:
+            LoadMyLeaveRequests();
+
+
+       
         }
         private void UpdateLeave_Click(object sender, RoutedEventArgs e)
         {
@@ -73,6 +102,14 @@ namespace _106_ManagementSystemProject
 
             MessageBox.Show("Under Maintenance");
 
+        }
+
+
+
+        private void LoadMyLeaveRequests()
+        {
+            dgLeaveRequests.ItemsSource =
+                LeaveDatabase.GetMyRequests(employeeId); // Get my reques in the leave database
         }
 
     }

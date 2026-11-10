@@ -138,16 +138,16 @@
                                         Binding="{Binding LeaveType}"
                                         Width="Auto"/>
                             <DataGridTextColumn Header="Start Date"
-                                        Binding="{Binding StartDate}"
+                                        Binding="{Binding StartDate, StringFormat=dd/mm/yyyy}"
                                         Width="*"/>
                             <DataGridTextColumn Header="End Date"
-                                        Binding="{Binding EndDate}"
+                                        Binding="{Binding EndDate, StringFormat=dd/mm/yyyy}"
                                         Width="*"/>
                             <DataGridTextColumn Header="Hours Requested"
-                                        Binding="{Binding Email}"
+                                        Binding="{Binding HoursRequested}"
                                         Width="*"/>
                             <DataGridTextColumn Header="Status"
-                                        Binding="{Binding Phone}"
+                                        Binding="{Binding Status}"
                                         Width="*"/>
                         </DataGrid.Columns>
                     </DataGrid>
@@ -230,7 +230,7 @@
                                 Width="120"
                                 Height="40"
                                 Margin="5,10,5,5"
-                                Click="RequestLeeave_Click"/>
+                                Click="RequestLeave_Click"/>
                         <Button Content="Update"
                                 Width="120"
                                 Height="40"
