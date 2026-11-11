@@ -19,9 +19,10 @@ namespace _106_ManagementSystemProject
     {
         public AdminDashboardWindow()
         {
-            InitializeComponent();  // First start the applicaton
-            EmployeeDatabase.CreateDatabase();
-            LoadEmployees();        // Load the employees from the database
+            InitializeComponent();              // First start the applicaton
+            EmployeeDatabase.CreateDatabase();  //
+            LoadEmployees();                    // Load the employees from the Employee Database
+            LoadAllRequests();                  // Load the leave requests from the Leave Requests Database
 
         }
 
@@ -111,11 +112,12 @@ namespace _106_ManagementSystemProject
         }
         private void Update_Click(object sender, RoutedEventArgs e)
         {
-            // Checks if a row is selected
+            // Checks if a row is selected:
             Employee selectedEmployee = dgManageEmployee.SelectedItem as Employee;
+
             if (selectedEmployee == null)
             {
-                MessageBox.Show("Please select an employee to delete.");
+                MessageBox.Show("Please select an employee to update.");
                 return;
             }
 
@@ -164,7 +166,7 @@ namespace _106_ManagementSystemProject
                 return;
             }
 
-            // Create a temporary employee instance:
+            // Create a temporary Employee instance:
             Employee employee = new Employee();
             employee.Id = selectedEmployee.Id; // Make sure replaces the one selected
             employee.FirstName = firstName;
@@ -240,34 +242,69 @@ namespace _106_ManagementSystemProject
         }
         private void Approve_Click(object sender, RoutedEventArgs e)
         {
-            if (dgLeaveRequest.SelectedItem is Employee selectedEmployee)
+            // Checks if a row is selected:
+            LeaveRequest selectedRequest = dgLeaveRequest.SelectedItem as LeaveRequest;
+
+            if (selectedRequest == null)
             {
-                // Perform the approval action for the selected employee
-                MessageBox.Show($"Employee {selectedEmployee.FirstName} {selectedEmployee.LastName} has been approved.");
+                MessageBox.Show("Please select a request to approve.");
+                return;
             }
-            else
-            {
-                MessageBox.Show("Please select an employee to approve.");
-            }
+
+            // Creates a temporary leaveRequest intance:
+            LeaveRequest leaveRequest = new LeaveRequest();
+            leaveRequest.RequestId = selectedRequest.RequestId;
+            leaveRequest.Id = selectedRequest.Id;
+            leaveRequest.Name = selectedRequest.Name;
+            leaveRequest.LeaveType = selectedRequest.LeaveType;
+            leaveRequest.StartDate = selectedRequest.StartDate;
+            leaveRequest.EndDate = selectedRequest.EndDate;
+            leaveRequest.HoursRequested = selectedRequest.HoursRequested;
+            leaveRequest.Status = "APPROVED";
+
+            //Adds the temporary request instance to the database:
+            LeaveDatabase.UpdateLeaveRequest(leaveRequest);
+
+            LoadAllRequests();
         }
+
         private void Reject_Click(object sender, RoutedEventArgs e)
         {
-            if (dgLeaveRequest.SelectedItem is Employee selectedEmployee)
-            {
-                // Perform the rejection action for the selected employee
-                MessageBox.Show($"Employee {selectedEmployee.FirstName} {selectedEmployee.LastName} has been rejected.");
-            }
-            else
-            {
-                MessageBox.Show("Please select an employee to reject.");
-            }
-        }
-    }
-     // ------------------------------------------------------------------------------
+            LeaveRequest selectedRequest = dgLeaveRequest.SelectedItem as LeaveRequest;
 
-        // -------------------------
-        // Employee Info methods END
-        // -------------------------
-    // Class end
+            if (selectedRequest == null)
+            {
+                MessageBox.Show("Please select a request to approve.");
+                return;
+            }
+
+            // Creates a temporary leaveRequest intance:
+            LeaveRequest leaveRequest = new LeaveRequest();
+            leaveRequest.RequestId = selectedRequest.RequestId;
+            leaveRequest.Id = selectedRequest.Id;
+            leaveRequest.Name = selectedRequest.Name;
+            leaveRequest.LeaveType = selectedRequest.LeaveType;
+            leaveRequest.StartDate = selectedRequest.StartDate;
+            leaveRequest.EndDate = selectedRequest.EndDate;
+            leaveRequest.HoursRequested = selectedRequest.HoursRequested;
+            leaveRequest.Status = "DENIED";
+
+            //Adds the temporary request instance to the database:
+            LeaveDatabase.UpdateLeaveRequest(leaveRequest);
+
+            LoadAllRequests();
+        }
+
+        // Loads to Admin all employee requests:
+        private void LoadAllRequests()
+        {
+            dgLeaveRequest.ItemsSource =
+                LeaveDatabase.GetAllRequests(); // Get all requests in the leave database
+        }
+
+    }
+    // ------------------------------------------------------------------------------
+
+
 }   // Namespace end
 

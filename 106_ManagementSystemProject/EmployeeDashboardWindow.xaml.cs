@@ -90,13 +90,11 @@ namespace _106_ManagementSystemProject
             MessageBox.Show("Under Maintenance");
 
         }
-
         private void DeleteLeave_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Under Maintenance");
 
         }
-
         private void dgManageEmployee_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
@@ -104,12 +102,11 @@ namespace _106_ManagementSystemProject
 
         }
 
-
-
+        // Loads to Employee only their own requests:
         private void LoadMyLeaveRequests()
         {
             dgLeaveRequests.ItemsSource =
-                LeaveDatabase.GetMyRequests(employeeId); // Get my reques in the leave database
+                LeaveDatabase.GetMyRequests(employeeId); // Get only my own request in the leave database
         }
 
     }
