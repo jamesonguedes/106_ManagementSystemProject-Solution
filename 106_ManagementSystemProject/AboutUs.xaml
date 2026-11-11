@@ -4,11 +4,32 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:_106_ManagementSystemProject"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="AboutUs">
+      mc:Ignorable="d"
+      Title="AboutUs" Height="600" Width="1000">
 
-    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-        <TextBlock FontSize="40" FontWeight="Bold" Foreground="White">ABOUT US PAGE</TextBlock>
-    </StackPanel>
+    <ListBox Height="302" Width="871"  HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Height="296" Width="855">
+            <TextBlock Text="About Us"
+           FontSize="30"
+           FontWeight="Bold"
+           HorizontalAlignment="Center"
+           VerticalAlignment="Center"
+           Margin="0,10,0,30"/>
+
+            <Image Source="/Group 85.png"
+                   Width="213"
+                   Height="125"
+                   Stretch="Uniform"/>
+
+            <TextBlock TextWrapping="Wrap"
+            TextAlignment="Center"
+            FontFamily="Calibri"
+            FontStyle="Italic"
+            FontSize="18"
+            Width="571"
+            Margin="50,0,50,50">
+                <Run Text="NZFTC is a leading organization in the field of Finances and Trade. We are dedicated to streamline our human resource management processes and improve our operational efficiency and effectiveness."/>
+            </TextBlock>
+        </StackPanel>
+    </ListBox>
 </Page>
