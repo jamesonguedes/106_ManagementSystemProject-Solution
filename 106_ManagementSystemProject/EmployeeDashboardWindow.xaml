@@ -220,7 +220,7 @@
                     
                     </StackPanel>
                     -->
-                    
+
                     <StackPanel Grid.Column="0"
                                 Grid.Row="4"
                                 Grid.ColumnSpan="5"
@@ -365,23 +365,41 @@
                     <TextBox>Under Maintenance</TextBox>
                 </Border>
 
-                <!-- Clock -->
+                <!-- Submit Grievance-->
                 <Border Background="#000807"
                 Grid.Column="4" Grid.Row="0">
                     <Label  FontSize="14"
                     Foreground="#FBF9FF"
-                    HorizontalAlignment="Left">CLOCK</Label>
+                    HorizontalAlignment="Left">SUBMIT GRIEVANCE</Label>
                 </Border>
                 <Border Background="#fbf9ff"
                     Grid.Column="4"
                     Grid.Row="1">
-                    <TextBox>
-                        
-                        
-                        MESSAGE FOR TESTING
-                        CAN BE DELETED
 
-                    </TextBox>
+                    <StackPanel Margin="5,0,5,0">
+                        <TextBlock Text="Subject"
+                            FontWeight="Bold"/>
+
+                        <TextBox x:Name="txtSubject"
+                             Height="35"
+                             Margin="0,5,0,20"/>
+
+                        <TextBlock Text="Description"
+                            FontWeight="Bold"/>
+
+                        <TextBox x:Name="txtDescription"
+                             Height="100"
+                             TextWrapping="Wrap"
+                             AcceptsReturn="True"
+                             Margin="0,5,0,20" TextChanged="txtDescription_TextChanged"/>
+
+                        <Button Content="Submit Grievance"
+                            Width="140"
+                            Height="30"
+                            HorizontalAlignment="Center"
+                            Click="SubmitGrievance_Click"/>
+
+                    </StackPanel>
                 </Border>
 
             </Grid>
