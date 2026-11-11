@@ -304,86 +304,91 @@ namespace _106_ManagementSystemProject
 
         private void AddPayroll_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("Under Maintenance");
         }
 
         private void UpdatePayroll_Click(object sender, RoutedEventArgs e)
         {
-            // Checks if a row is selected
-            Employee selectedEmployee = dgPayrollManagement.SelectedItem as Employee;
-            if (selectedEmployee == null)
-            {
-                MessageBox.Show("Please select an employee to delete.");
-                return;
-            }
-
-            // Trim() deletes an extra space before or after
-            string employeeId = txtEmployeeID.Text.Trim();
-            string employeeName = txtEmployeeName.Text.Trim();
-            string GrossSalary = txtGrossSalary.Text.Trim();
-            string Tax = txtTax.Text.Trim();
-            string NetSalary = txtNetSalary.Text.Trim();
-
-            // Let's check if all fields are full:
-            if (string.IsNullOrWhiteSpace(employeeId))
-            {
-                MessageBox.Show("Please enter the employee's ID.");
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(employeeName))
-            {
-                MessageBox.Show("Please enter the employee's Name.");
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(GrossSalary))
-            {
-                MessageBox.Show("Please enter the employee's Gross Salary.");
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(Tax))
-            {
-                MessageBox.Show("Please enter the employee's Tax.");
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(NetSalary))
-            {
-                MessageBox.Show("Please enter the employee's Net Salary.");
-                return;
-            }
-
-            // Create a temporary employee instance:
-            Employee employee = new Employee();
-            employee.Id = selectedEmployee.Id; // Make sure replaces the one selected
-            employee.FirstName = employeeName;
-            employee.GrossSalary = GrossSalary;
-            employee.Tax = Tax;
-            employee.NetSalary = NetSalary;
-
-            // Add the temporary employee instance to the database:
-            EmployeeDatabase.UpdateEmployee(employee);
-
-            // Displays the list of emlployees in the DataGrid:
-            LoadEmployees();
-
-            // Message to be displayed when new employee is added:
-            MessageBox.Show("Employee Id " + employee.Id + " has been updated successfully!");
-
-            // Lets make sure all the fields are clean :)
-            txtEmployeeID.Clear();
-            txtEmployeeName.Clear();
-            txtGrossSalary.Clear();
-            txtTax.Clear();
-            txtNetSalary.Clear();
-            txtDepartment.Clear();
+            MessageBox.Show("Under Maintenance");
         }
+
+        //private void UpdatePayroll_Click(object sender, RoutedEventArgs e)
+        //{
+        //    // Checks if a row is selected
+        //    Employee selectedEmployee = dgPayrollManagement.SelectedItem as Employee;
+        //    if (selectedEmployee == null)
+        //    {
+        //        MessageBox.Show("Please select an employee to delete.");
+        //        return;
+        //    }
+
+        //    // Trim() deletes an extra space before or after
+        //    string employeeId = txtEmployeeID.Text.Trim();
+        //    string employeeName = txtEmployeeName.Text.Trim();
+        //    string GrossSalary = txtGrossSalary.Text.Trim();
+        //    string Tax = txtTax.Text.Trim();
+        //    string NetSalary = txtNetSalary.Text.Trim();
+
+        //    // Let's check if all fields are full:
+        //    if (string.IsNullOrWhiteSpace(employeeId))
+        //    {
+        //        MessageBox.Show("Please enter the employee's ID.");
+        //        return;
+        //    }
+
+        //    if (string.IsNullOrWhiteSpace(employeeName))
+        //    {
+        //        MessageBox.Show("Please enter the employee's Name.");
+        //        return;
+        //    }
+
+        //    if (string.IsNullOrWhiteSpace(GrossSalary))
+        //    {
+        //        MessageBox.Show("Please enter the employee's Gross Salary.");
+        //        return;
+        //    }
+
+        //    if (string.IsNullOrWhiteSpace(Tax))
+        //    {
+        //        MessageBox.Show("Please enter the employee's Tax.");
+        //        return;
+        //    }
+
+        //    if (string.IsNullOrWhiteSpace(NetSalary))
+        //    {
+        //        MessageBox.Show("Please enter the employee's Net Salary.");
+        //        return;
+        //    }
+
+        //    // Create a temporary employee instance:
+        //    Employee employee = new Employee();
+        //    employee.Id = selectedEmployee.Id; // Make sure replaces the one selected
+        //    employee.FirstName = employeeName;
+        //    employee.GrossSalary = GrossSalary;
+        //    employee.Tax = Tax;
+        //    employee.NetSalary = NetSalary;
+
+        //    // Add the temporary employee instance to the database:
+        //    EmployeeDatabase.UpdateEmployee(employee);
+
+        //    // Displays the list of emlployees in the DataGrid:
+        //    LoadEmployees();
+
+        //    // Message to be displayed when new employee is added:
+        //    MessageBox.Show("Employee Id " + employee.Id + " has been updated successfully!");
+
+        //    // Lets make sure all the fields are clean :)
+        //    txtEmployeeID.Clear();
+        //    txtEmployeeName.Clear();
+        //    txtGrossSalary.Clear();
+        //    txtTax.Clear();
+        //    txtNetSalary.Clear();
+        //    txtDepartment.Clear();
+        //}
 
         private void DeletePayroll_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("Under Maintenance");
         }
 
         

@@ -116,6 +116,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MessageDatabase.cs" />
+    <Compile Include="MessageRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
