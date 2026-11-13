@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:_106_ManagementSystemProject"
       mc:Ignorable="d" 
-      Title="Home" Height="1080" Width="1920">
+      Title="Home" Height="680" Width="1000">
 
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
 
