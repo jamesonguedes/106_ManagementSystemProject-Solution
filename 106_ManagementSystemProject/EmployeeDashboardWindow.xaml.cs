@@ -39,7 +39,7 @@ namespace _106_ManagementSystemProject
         private void RequestLeave_Click(object sender, RoutedEventArgs e)
         {
             int id = employeeId;
-            string Name = txtEmployeeName.Text.Trim();
+            string name = txtEmployeeName.Text.Trim();
             string leaveType = (txtLeaveType.SelectedItem as ComboBoxItem)?.Content?.ToString();
             DateTime startDate = txtStartDate.SelectedDate ?? DateTime.Now;
             DateTime endDate = txtEndDate.SelectedDate ?? DateTime.Now;
@@ -69,12 +69,16 @@ namespace _106_ManagementSystemProject
             LeaveRequest leaveRequest = new LeaveRequest();
 
             leaveRequest.Id = id;
-            leaveRequest.Name = Name;
+            leaveRequest.Name = name;
             leaveRequest.LeaveType = leaveType;
             leaveRequest.StartDate = startDate;
             leaveRequest.EndDate = endDate;
             leaveRequest.HoursRequested = hoursRequested;
             leaveRequest.Status = status;
+
+
+            //PAUSE HERE AND CREATE DATABASE BEFORE CONTINUING
+
 
             // Adds the temporary LeaveRequest instance to the database:
             LeaveDatabase.RequestLeave(leaveRequest);
@@ -90,13 +94,11 @@ namespace _106_ManagementSystemProject
             MessageBox.Show("Under Maintenance");
 
         }
-
         private void DeleteLeave_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Under Maintenance");
 
         }
-
         private void dgManageEmployee_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
@@ -104,28 +106,49 @@ namespace _106_ManagementSystemProject
 
         }
 
-
-
+        // Loads to Employee only their own requests:
         private void LoadMyLeaveRequests()
         {
             dgLeaveRequests.ItemsSource =
-                LeaveDatabase.GetMyRequests(employeeId); // Get my reques in the leave database
+                LeaveDatabase.GetMyRequests(employeeId); // Get only my own request in the leave database
         }
 
-        private void SubmitGrievance_Click(object sender, RoutedEventArgs e)
+        private void SubmitMessage_Click(object sender, RoutedEventArgs e)
         {
+            int id = employeeId;
+            string name = txtEmployeeName.Text.Trim();
+            string messageType = txtMessageType.Text.Trim();
             string subject = txtSubject.Text.Trim();
-            string DescriptionText = txtDescription.Text.Trim();
+            string description = txtDescription.Text.Trim();
+
+            if (string.IsNullOrEmpty(messageType))
+            {
+                MessageBox.Show("Please select message type.");
+                return;
+            }
             if (string.IsNullOrEmpty(subject))
             {
                 MessageBox.Show("Please enter a subject for the grievance.");
                 return;
             }
-            if (string.IsNullOrEmpty(DescriptionText))
+            if (string.IsNullOrEmpty(description))
             {
                 MessageBox.Show("Please enter a description for the grievance.");
                 return;
             }
+
+            // Creates a temporary MessageRequest instance:
+            MessageRequest messageRequest = new MessageRequest();
+
+            messageRequest.Id = id;
+            messageRequest.Name = name;
+            messageRequest.MessageType = messageType;
+            messageRequest.Subject = subject;
+            messageRequest.Description = description;
+
+            // Adds the temporaru LEaveRequest intance to the databse:
+
+            MessageDatabase.RequestMessage(messageRequest);
 
             MessageBox.Show("Grievance submitted successfully.");
         }

@@ -372,38 +372,60 @@
                     Foreground="#FBF9FF"
                     HorizontalAlignment="Left">SUBMIT GRIEVANCE</Label>
                 </Border>
-                <Border Background="#fbf9ff"
+                
+                <ScrollViewer Background="#fbf9ff"
                     Grid.Column="4"
                     Grid.Row="1">
 
-                    <StackPanel Margin="5,0,5,0">
-                        <TextBlock Text="Subject"
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Column="0" Grid.Row="0">
+                            <TextBlock Text="Message Type"/>
+                            <ComboBox x:Name="txtMessageType"
+                                  Height="30"
+                                  Margin="5,5,5,0">
+                                <ComboBoxItem Content="Grievance"/>
+                                <ComboBoxItem Content="Resignation"/>
+                                <ComboBoxItem Content="Other"/>
+                            </ComboBox>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1" Grid.Row="0">
+                            <TextBlock Text="Subject"
                             FontWeight="Bold"/>
-
-                        <TextBox x:Name="txtSubject"
+                            <TextBox x:Name="txtSubject"
                              Height="35"
                              Margin="0,5,0,20"/>
-
-                        <TextBlock Text="Description"
+                        </StackPanel>
+                        <StackPanel Grid.Column="0" Grid.Row="1"
+                                    Grid.RowSpan="1" Grid.ColumnSpan="2">
+                            <TextBlock Text="Description"
                             FontWeight="Bold"/>
 
-                        <TextBox x:Name="txtDescription"
+                            <TextBox x:Name="txtDescription"
                              Height="100"
                              TextWrapping="Wrap"
                              AcceptsReturn="True"
                              Margin="0,5,0,20" TextChanged="txtDescription_TextChanged"/>
 
-                        <Button Content="Submit Grievance"
+                            <Button Content="Submit Message"
                             Width="140"
                             Height="30"
                             HorizontalAlignment="Center"
-                            Click="SubmitGrievance_Click"/>
+                            Click="SubmitMessage_Click"/>
 
-                    </StackPanel>
-                </Border>
+                        </StackPanel>
+                        
+                    </Grid>
 
+                </ScrollViewer>
             </Grid>
         </Grid>
-
     </Grid>
 </Window>
